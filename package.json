@@ -1,6 +1,6 @@
 {
   "name": "doc-house",
-  "homepage":".",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,6 +17,10 @@
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-parallax-tilt": "^1.7.146",
     "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "daisyui": "^3.1.0"
   }
 }
