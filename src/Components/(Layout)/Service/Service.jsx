@@ -7,10 +7,10 @@ const Service = () => {
   return (
     <div>
       <div className="flex">
-        <div>
+        <div className="my-[100px] ">
           <Image width={600} height={1200} src={doctor} placeholder="blur" />
         </div>
-        <div className="my-6 p-4">
+        <div className="my-14 p-6">
           <div>
             <h2 className="text-2xl my-4 font-bold">Our Service</h2>
             <p className="text-xl my-4">

@@ -1,15 +1,15 @@
+import Contact from "@/Components/(Layout)/Contact/Contact";
 import HeroSection from "@/Components/(Layout)/HeroSection/HeroSection";
 import Service from "@/Components/(Layout)/Service/Service";
-import Head from "next/head";
+import Testimonial from "@/Components/(Layout)/Testimonial/Testimonial";
 
 const Home = () => {
   return (
     <main>
-      <Head>
-        <link rel="shortcut icon" href="../../public/next.svg" />
-      </Head>
       <HeroSection />
       <Service />
+      <Contact />
+      <Testimonial />
     </main>
   );
 };
