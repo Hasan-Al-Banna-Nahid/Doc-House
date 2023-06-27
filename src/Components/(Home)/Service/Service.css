@@ -1,0 +1,8 @@
+.doctor {
+  height: 100vh !important;
+}
+@media screen and (max-width: 576px) {
+  .teeth {
+    display: none;
+  }
+}
