@@ -1,13 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor";
+import Link from "next/link";
 
 const Header = () => {
   const [isDarkMood, setIsDarkMood] = useState(false);
   const handleToggle = () => {
     setIsDarkMood((isDarkMood) => !isDarkMood);
   };
+
   const darkMood = () => {
     document.body.style.backgroundColor = "#2f3640";
     document.body.style.color = "#f5f6fa";
@@ -58,13 +60,13 @@ const Header = () => {
               id="navbar"
             >
               <li className="text-[20px]">
-                <a>Home</a>
+                <Link href={"/"}> Home</Link>
               </li>
               <li className="text-[20px]">
-                <a href="">About</a>
+                <Link href={"/"}>About</Link>
               </li>
               <li className="text-[20px]">
-                <a>Appointment</a>
+                <Link href={"/"}>Appointment</Link>
               </li>
             </ul>
           </div>
@@ -73,13 +75,13 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="text-[20px]">
-              <a>Home</a>
+              <Link href={"/"}>Home</Link>
             </li>
             <li className="text-[20px]">
-              <a href="">About</a>
+              <Link href={"/"}> About</Link>
             </li>
             <li className="text-[20px]">
-              <a>Appointment</a>
+              <Link href={"/"}> Appointment</Link>
             </li>
             <li>
               <div onClick={handleToggle} className="shadow-2xl ">
@@ -99,7 +101,9 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link href={"/"} className="btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>

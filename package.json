@@ -16,15 +16,20 @@
     "next": "13.4.5",
     "particles.js": "^2.0.0",
     "postcss": "8.4.24",
+    "preact": "^10.15.1",
     "react": "18.2.0",
     "react-animated-cursor": "^2.7.0",
+    "react-datepicker": "^4.14.1",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-parallax-tilt": "^1.7.146",
     "react-particles": "^2.10.1",
+    "react-time-picker": "^6.2.0",
     "swiper": "^9.4.1",
     "tailwindcss": "3.3.2",
-    "tsparticles-engine": "^2.10.1"
+    "tsparticles": "^2.10.1",
+    "tsparticles-engine": "^2.10.1",
+    "typescript": "^5.1.5"
   },
   "devDependencies": {
     "daisyui": "^3.1.0"
