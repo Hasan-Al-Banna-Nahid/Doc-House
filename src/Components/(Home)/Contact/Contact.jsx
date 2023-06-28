@@ -119,6 +119,12 @@ const Contact = () => {
                 </label>
               </div>
             </div>
+            <button
+              className="btn my-4 bg-[#F7A582] font-bold text-[20px]"
+              style={{ width: "100%" }}
+            >
+              Book Now
+            </button>
           </form>
         </div>
       </div>
