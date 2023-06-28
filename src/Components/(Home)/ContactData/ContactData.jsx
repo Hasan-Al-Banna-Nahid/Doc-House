@@ -1,15 +1,37 @@
 "use client";
-import { useState } from "react";
-import DatePicker from "react-datepicker";
 import { BsCalendar2Date } from "react-icons/bs";
 
-import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactData = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const handleBooking = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const doctor = form.doctor.value;
+    const time = form.time.value;
+    const Date = form.date.value;
+    const datas = { email, name, phone, doctor, time, Date };
+    const res = await fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datas),
+    });
+    const toastId = toast.loading("Loading");
+    const data = await res.json();
+    if (data) {
+      form.reset();
+      toast.dismiss(toastId);
+      toast.success("Your Appointment is Successfully Booked");
+    }
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleBooking}>
+        <ToastContainer />
         <div className="grid md:grid-cols-2 gap-6">
           <div className="form-control">
             <label className="label">
@@ -21,6 +43,8 @@ const ContactData = () => {
                 type="text"
                 placeholder="info@site.com"
                 className="input input-bordered"
+                name="email"
+                required
               />
             </label>
           </div>
@@ -35,6 +59,8 @@ const ContactData = () => {
                 type="text"
                 placeholder="Hasan Al Banna"
                 className="input input-bordered"
+                name="name"
+                required
               />
             </label>
           </div>
@@ -49,6 +75,8 @@ const ContactData = () => {
                 type="number"
                 placeholder="+8801896085259"
                 className="input input-bordered"
+                name="phone"
+                required
               />
             </label>
           </div>
@@ -62,7 +90,9 @@ const ContactData = () => {
               <input
                 type="text"
                 placeholder="Mr. Nahid "
-                className="input input-bordered"
+                className="input input-bordered text-slate-800"
+                name="doctor"
+                required
               />
             </label>
           </div>
@@ -75,12 +105,18 @@ const ContactData = () => {
               <span className="bg-slate-600 input input-bordered w-96">
                 Date <BsCalendar2Date className="text-2xl ms-4" />
               </span>
-
-              <DatePicker
+              <input
+                type="number"
+                placeholder="Type a Date"
+                className="input input-bordered text-slate-800"
+                name="date"
+                required
+              />
+              {/* <DatePicker
                 className="w-[1px]"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-              />
+              /> */}
             </label>
           </div>
 
@@ -93,7 +129,9 @@ const ContactData = () => {
               <input
                 type="text"
                 placeholder="7:00 PM"
-                className="input input-bordered"
+                className="input input-bordered text-slate-800"
+                name="time"
+                required
               />
             </label>
           </div>

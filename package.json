@@ -1,6 +1,6 @@
 {
   "name": "doc-house",
-  "homepage": ".",
+  "homepage": "http://.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -28,6 +28,7 @@
     "react-parallax-tilt": "^1.7.146",
     "react-particles": "^2.10.1",
     "react-time-picker": "^6.2.0",
+    "react-toastify": "^9.1.3",
     "swiper": "^9.4.1",
     "tailwindcss": "3.3.2",
     "tsparticles": "^2.10.1",
@@ -36,5 +37,17 @@
   },
   "devDependencies": {
     "daisyui": "^3.1.0"
+  },
+  "description": "",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hasan-Al-Banna-Nahid/Doc-House.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hasan-Al-Banna-Nahid/Doc-House/issues"
   }
 }
