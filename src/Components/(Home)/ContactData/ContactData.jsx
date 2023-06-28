@@ -106,8 +106,8 @@ const ContactData = () => {
                 Date <BsCalendar2Date className="text-2xl ms-4" />
               </span>
               <input
-                type="number"
-                placeholder="Type a Date"
+                type="text"
+                placeholder="01-01-2023"
                 className="input input-bordered text-slate-800"
                 name="date"
                 required

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "doctorName": "Dr. John Smith",
+    "designation": "Cardiologist",
+    "price": 150,
+    "img": "https://ibb.co/tHPQjLD",
+    "rating": 4.8,
+    "chamber": "ABC Hospital",
+    "appointmentTime": "10:00 AM - 12:00 PM",
+    "about": "Dr. John Smith is a highly experienced cardiologist...",
+    "service": ["Cardiac Consultation", "Echocardiogram", "Stress Test"],
+    "workExperience": "15 years",
+    "award": "Best Cardiologist of the Year 2022",
+    "specialization": ["Cardiology", "Internal Medicine"]
+  },
+  {
+    "id": 2,
+    "doctorName": "Dr. Sarah Johnson",
+    "designation": "Dermatologist",
+    "price": 120,
+    "img": "https://ibb.co/t8Qd0BW",
+    "rating": 4.9,
+    "chamber": "XYZ Clinic",
+    "appointmentTime": "2:00 PM - 5:00 PM",
+    "about": "Dr. Sarah Johnson is a renowned dermatologist...",
+    "service": ["Acne Treatment", "Skin Cancer Screening", "Botox"],
+    "workExperience": "10 years",
+    "award": "Best Dermatologist of the Year 2022",
+    "specialization": ["Dermatology", "Cosmetic Dermatology"]
+  },
+  {
+    "id": 3,
+    "doctorName": "Dr. Michael Lee",
+    "designation": "Orthopedic Surgeon",
+    "price": 200,
+    "img": "https://ibb.co/nwH8Sqp",
+    "rating": 4.7,
+    "chamber": "PQR Hospital",
+    "appointmentTime": "9:00 AM - 1:00 PM",
+    "about": "Dr. Michael Lee is a skilled orthopedic surgeon...",
+    "service": ["Joint Replacement", "Fracture Treatment", "Sports Medicine"],
+    "workExperience": "12 years",
+    "award": "Outstanding Orthopedic Surgeon 2021",
+    "specialization": ["Orthopedic Surgery", "Sports Medicine"]
+  }
+]
