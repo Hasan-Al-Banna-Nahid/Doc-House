@@ -1,10 +1,13 @@
 "use client";
+import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
+import { useContext } from "react";
 import { BsCalendar2Date } from "react-icons/bs";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ContactData = () => {
+  const { user } = useContext(AuthContext);
   const handleBooking = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,18 +17,32 @@ const ContactData = () => {
     const doctor = form.doctor.value;
     const time = form.time.value;
     const Date = form.date.value;
-    const datas = { email, name, phone, doctor, time, Date };
-    const res = await fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(datas),
-    });
+    const datas = {
+      email,
+      name,
+      phone,
+      doctor,
+      time,
+      Date,
+      userEmail: user?.email,
+    };
     const toastId = toast.loading("Loading");
-    const data = await res.json();
-    if (data) {
-      form.reset();
+    if (user) {
+      const res = await fetch(`http://localhost:5000/booking`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datas),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data) {
+        form.reset();
+        toast.dismiss(toastId);
+        toast.success("Your Appointment is Successfully Booked");
+      }
+    } else {
       toast.dismiss(toastId);
-      toast.success("Your Appointment is Successfully Booked");
+      toast("You Have To login first For Book An Appointment");
     }
   };
   return (

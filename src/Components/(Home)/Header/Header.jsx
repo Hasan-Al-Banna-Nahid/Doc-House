@@ -1,12 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor";
 import Link from "next/link";
 import Login from "@/app/Authentication/login/page";
+import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const [isDarkMood, setIsDarkMood] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut();
+    toast.success("Log Out Successfully");
+  };
   const handleToggle = () => {
     setIsDarkMood((isDarkMood) => !isDarkMood);
   };
@@ -36,6 +44,7 @@ const Header = () => {
           border: "3px solid var(--cursor-color)",
         }}
       />
+      <ToastContainer />
       <div className="navbar text-[#6c5ce7] font-bold  fixed bg-transparent z-30">
         <div className="navbar-start">
           <div className="dropdown">
@@ -102,9 +111,15 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href={"/Authentication/login"} className="btn">
-            Login
-          </Link>
+          {user ? (
+            <button onClick={handleLogOut} className="btn">
+              Logout
+            </button>
+          ) : (
+            <Link href={"/Authentication/login"} className="btn">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>
