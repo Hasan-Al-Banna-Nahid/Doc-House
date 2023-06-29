@@ -16,14 +16,16 @@ const ContactData = () => {
     const phone = form.phone.value;
     const doctor = form.doctor.value;
     const time = form.time.value;
-    const Date = form.date.value;
+    const date = form.date.value;
+    const service = form.service.value;
     const datas = {
       email,
       name,
       phone,
       doctor,
       time,
-      Date,
+      date,
+      service,
       userEmail: user?.email,
     };
     const toastId = toast.loading("Loading");
@@ -109,6 +111,21 @@ const ContactData = () => {
                 placeholder="Mr. Nahid "
                 className="input input-bordered text-slate-800"
                 name="doctor"
+                required
+              />
+            </label>
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Service</span>
+            </label>
+            <label className="input-group">
+              <span className="bg-slate-600">Service</span>
+              <input
+                type="text"
+                placeholder="Orthopedic"
+                className="input input-bordered text-slate-800"
+                name="service"
                 required
               />
             </label>

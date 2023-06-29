@@ -14,28 +14,35 @@ const Appointment = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
-              <th className="font-bold text-[20px]">#</th>
-              <th className="font-bold text-[20px]">doctor</th>
-              <th className="font-bold text-[20px]">time</th>
-              <th className="font-bold text-[20px]">Date</th>
-            </tr>
+            {bookings && (
+              <tr>
+                <th className="font-bold text-[20px]">#</th>
+                <th className="font-bold text-[20px]">doctor</th>
+                <th className="font-bold text-[20px]">time</th>
+                <th className="font-bold text-[20px]">Service</th>
+                <th className="font-bold text-[20px]">Date</th>
+              </tr>
+            )}
           </thead>
           <tbody>
-            {bookings.map((booking, index) => {
-              return (
-                <>
-                  <tr>
-                    <th className="font-bold text-[20px]">{index}</th>
-                    <td className="font-bold text-[20px]">{booking.doctor}</td>
-                    <td className="font-bold text-[20px]">
-                      {booking.time} Specialist
-                    </td>
-                    <td className="font-bold text-[20px]">{booking.Date}</td>
-                  </tr>
-                </>
-              );
-            })}
+            {bookings &&
+              bookings.map((booking, index) => {
+                return (
+                  <>
+                    <tr>
+                      <th className="font-bold text-[18px]">{index}</th>
+                      <td className="font-bold text-[18px]">
+                        {booking.doctor}
+                      </td>
+                      <td className="font-bold text-[18px]">{booking.time}</td>
+                      <td className="font-bold text-[18px]">
+                        {booking.service}
+                      </td>
+                      <td className="font-bold text-[18px]">{booking.date}</td>
+                    </tr>
+                  </>
+                );
+              })}
           </tbody>
         </table>
       </div>

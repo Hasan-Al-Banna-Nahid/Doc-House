@@ -1,7 +1,14 @@
+import { Roboto } from "next/font/google";
+import "../globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaCalendarAlt, FaHome } from "react-icons/fa";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+});
 
 export const metadata = {
   title: "Dashboard | Doc House",
@@ -36,7 +43,7 @@ export default function Layout({ children }) {
             </li>
             <div className="divide my-6  border border-red-700"></div>
 
-            <li className="hover:text-[#ecf0f1]">
+            <li>
               <Link href={"/dashboard/appointment"}>
                 <FaCalendarAlt className="mx-2" />
                 My Appointment
@@ -46,7 +53,7 @@ export default function Layout({ children }) {
               <a>Sidebar Item 2</a>
             </li>
             <div className="divide  border border-blue-700 my-6"></div>
-            <li className="hover:text-[#ecf0f1]">
+            <li>
               <Link href={"/"}>
                 <FaHome className="mx-2" />
                 Home
@@ -55,7 +62,7 @@ export default function Layout({ children }) {
           </ul>
         </div>
       </div>
-      <body></body>
+      <body className={roboto.className}></body>
     </html>
   );
 }
