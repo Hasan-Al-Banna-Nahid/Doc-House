@@ -1,16 +1,19 @@
 "use client";
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../firebase.config";
 import axios from "axios";
 
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState([]);
@@ -23,6 +26,9 @@ const AuthProvider = ({ children }) => {
   const handleEmailPasswordLogin = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+  const handleGoogleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
   };
   const logOut = () => {
     return signOut(auth);
@@ -52,6 +58,7 @@ const AuthProvider = ({ children }) => {
     loading,
     handleEmailPasswordSignUp,
     handleEmailPasswordLogin,
+    handleGoogleLogin,
     logOut,
   };
   return (

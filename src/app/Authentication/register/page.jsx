@@ -8,18 +8,27 @@ import useAxiosSecure from "@/Components/Hooks/useAxiosSecure";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [axiosSecure] = useAxiosSecure();
   const router = useRouter();
-  const { handleEmailPasswordSignUp } = useContext(AuthContext);
+  const { handleEmailPasswordSignUp, handleGoogleLogin } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+  const GoogleLogin = () => {
+    handleGoogleLogin().then((result) => {
+      if (result.user) {
+        router.push("/");
+      }
+    });
+  };
   const onSubmit = async (data, e) => {
     e.preventDefault();
     const form = e.target;
@@ -65,7 +74,7 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="input input-bordered"
+                    className="input input-bordered font-bold"
                     required
                     {...register("name", { required: true })}
                   />
@@ -80,7 +89,7 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Your Email"
-                    className="input input-bordered"
+                    className="input input-bordered font-bold"
                     required
                     {...register("email", { required: true })}
                   />
@@ -115,7 +124,7 @@ const Register = () => {
                   <input
                     type="password"
                     placeholder="Password"
-                    className="input input-bordered"
+                    className="input input-bordered font-bold"
                     name="password"
                     required
                     {...register("password", {
@@ -138,7 +147,7 @@ const Register = () => {
                   <input
                     type="password"
                     placeholder="Confirm Password"
-                    className="input input-bordered"
+                    className="input input-bordered font-bold"
                     name="confirmPassword"
                     required
                     {...register("confirmPassword", {
@@ -149,15 +158,27 @@ const Register = () => {
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
-                <div className="divider">OR</div>
-                <Link href={"/Authentication/login"}>
-                  Already Have An Account Please{" "}
-                  <button className="btn btn-primary"> Login</button>
-                </Link>
+                <div className="divider text-slate-900">OR</div>
               </div>
 
               {errors.exampleRequired && <span>This field is required</span>}
             </form>
+            <div className="form-control">
+              <div
+                onClick={GoogleLogin}
+                className=" my-4 bg-gradient-to-r from-purple-500 to-orange-500 rounded p-4"
+              >
+                {" "}
+                Continue With{" "}
+                <button className="font-bold">
+                  <FaGoogle className="text-[26px] text-[#F4B400] mt-2" />
+                </button>
+              </div>
+              <Link href={"/Authentication/login"} className="text-slate-900">
+                Already Have An Account Please{" "}
+                <button className="btn btn-primary"> Login</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

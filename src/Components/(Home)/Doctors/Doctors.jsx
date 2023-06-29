@@ -17,7 +17,7 @@ const Doctors = () => {
     <div>
       <div className="text-center">
         <h2 className="my-4 font-bold text-2xl">Our Expert Doctors</h2>
-        <p className="my-4 font-medium">
+        <p className="my-4 font-semibold">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa{" "}
           <br />
