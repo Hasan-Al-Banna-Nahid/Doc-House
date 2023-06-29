@@ -25,7 +25,7 @@ const Doctors = () => {
           dicta sunt explicabo.
         </p>
         <div>
-          <div className="grid md:grid-cols-3 gap-6 w-[1300px] mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 w-[1300px] mx-auto text-slate-900">
             {doctors &&
               doctors.map((doctor) => {
                 return (

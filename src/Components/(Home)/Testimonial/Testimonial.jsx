@@ -41,7 +41,7 @@ const Testimonial = () => {
         }}
       />
       <div className="text-center my-6">
-        <h2 className="text-3xl font-bold my-4">What Our Patient Say</h2>
+        <h2 className="text-3xl font-bold my-4">What Our Patients Say</h2>
         <p className="text-xl my-4">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium <br />

@@ -1,7 +1,6 @@
-import Head from "next/head";
 import "./globals.css";
 
-import { Inter, Roboto } from "next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 import AuthProvider from "./Authentication/AuthProvider/AuthProvider";
 
 const roboto = Roboto({

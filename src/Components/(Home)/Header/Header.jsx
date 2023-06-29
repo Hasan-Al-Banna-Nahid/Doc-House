@@ -80,6 +80,11 @@ const Header = () => {
                   <Link href={"/appointment"}>Appointment</Link>
                 </li>
               )}
+              {user && (
+                <li className="text-[20px]">
+                  <Link href={"/dashboard"}> Dashboard</Link>
+                </li>
+              )}
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">Doc House</a>
@@ -95,6 +100,11 @@ const Header = () => {
             {user && (
               <li className="text-[20px]">
                 <Link href={"/appointment"}> Appointment</Link>
+              </li>
+            )}
+            {user && (
+              <li className="text-[20px]">
+                <Link href={"/dashboard"}> Dashboard</Link>
               </li>
             )}
             <li>

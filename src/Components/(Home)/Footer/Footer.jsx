@@ -19,7 +19,7 @@ const Footer = () => {
           border: "3px solid var(--cursor-color)",
         }}
       />
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 bg-base-300 text-slate-900 text-neutral-content">
         <div>
           <Image
             width={100}
