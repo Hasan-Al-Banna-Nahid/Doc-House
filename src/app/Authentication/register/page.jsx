@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
+import Image from "next/image";
 
 const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -57,7 +58,9 @@ const Register = () => {
       <div className="hero min-h-screen bg-base-200">
         <ToastContainer />
         <div className="hero-content flex-col lg:flex-row">
-          <img
+          <Image
+            width={800}
+            height={800}
             src="/Assests/register.jpg"
             className="max-w-sm rounded-lg shadow-2xl"
           />

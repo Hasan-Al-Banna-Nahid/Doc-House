@@ -75,9 +75,11 @@ const Header = () => {
               <li className="text-[20px]">
                 <Link href={"/"}>About</Link>
               </li>
-              <li className="text-[20px]">
-                <Link href={"/"}>Appointment</Link>
-              </li>
+              {user && (
+                <li className="text-[20px]">
+                  <Link href={"/appointment"}>Appointment</Link>
+                </li>
+              )}
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">Doc House</a>
@@ -90,9 +92,11 @@ const Header = () => {
             <li className="text-[20px]">
               <Link href={"/"}> About</Link>
             </li>
-            <li className="text-[20px]">
-              <Link href={"/"}> Appointment</Link>
-            </li>
+            {user && (
+              <li className="text-[20px]">
+                <Link href={"/appointment"}> Appointment</Link>
+              </li>
+            )}
             <li>
               <div onClick={handleToggle} className="shadow-2xl ">
                 {!isDarkMood ? (

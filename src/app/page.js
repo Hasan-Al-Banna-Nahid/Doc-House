@@ -31,7 +31,6 @@ const Home = () => {
       </Suspense>
       <Doctors />
       <Contact />
-
       <Footer />
     </main>
   );

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle } from "react-icons/fa";
+import Image from "next/image";
 
 const Login = () => {
   const { handleEmailPasswordLogin, handleGoogleLogin } =
@@ -45,7 +46,9 @@ const Login = () => {
         <ToastContainer />
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
-            <img
+            <Image
+              width={800}
+              height={800}
               src="/Assests/login.jpg"
               className="max-w-sm rounded-lg shadow-2xl"
             />
@@ -60,7 +63,7 @@ const Login = () => {
                     <input
                       type="text"
                       placeholder="Your Email"
-                      className="input input-bordered font-bold"
+                      className="w-96 input input-bordered font-bold"
                       required
                       name="email"
                     />
