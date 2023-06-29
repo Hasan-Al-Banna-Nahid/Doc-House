@@ -2,6 +2,7 @@ import Head from "next/head";
 import "./globals.css";
 
 import { Inter, Roboto } from "next/font/google";
+import AuthProvider from "./Authentication/AuthProvider/AuthProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -15,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <AuthProvider>
+        <body className={roboto.className}>{children}</body>
+      </AuthProvider>
     </html>
   );
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import AnimatedCursor from "react-animated-cursor";
 import Link from "next/link";
+import Login from "@/app/Authentication/login/page";
 
 const Header = () => {
   const [isDarkMood, setIsDarkMood] = useState(false);
@@ -101,7 +102,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href={"/"} className="btn">
+          <Link href={"/Authentication/login"} className="btn">
             Login
           </Link>
         </div>
