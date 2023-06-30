@@ -23,12 +23,14 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const GoogleLogin = () => {
+  const toastId = toast.loading("Loading...");
+  const GoogleLogin = async () => {
     handleGoogleLogin().then((result) => {
-      if (result.user) {
-        router.push("/");
-      }
+      toast.dismiss(toastId);
+      toast.success("User Login Successfully");
+      router.push("/");
     });
+    await axiosSecure.post("/user", { data: { email: result.user.email } });
   };
   const onSubmit = async (data, e) => {
     e.preventDefault();
@@ -38,19 +40,22 @@ const Register = () => {
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
     const toastId = toast.loading("Loading...");
-    handleEmailPasswordSignUp(email, password).then((data) => {
-      form.reset();
-      toast.dismiss(toastId);
-      toast.success("User Created Successfully");
-      router.push("/Authentication/login");
-    });
+    handleEmailPasswordSignUp(email, password)
+      .then((data) => {
+        form.reset();
+        toast.dismiss(toastId);
+        toast.success("User Created Successfully");
+        router.push("/Authentication/login");
+      })
+      .catch((err) => {
+        toast.dismiss(toastId);
+        toast.error(err.message);
+      });
     if (password !== confirmPassword) {
       setErrorMessage("Password Did Not Match");
       return;
     }
-    await axiosSecure
-      .post("/user", { data: { name: name, email: email } })
-      .then((data) => {});
+    await axiosSecure.post("/user", { data: { name: name, email: email } });
   };
   return (
     <div>

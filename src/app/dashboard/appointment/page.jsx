@@ -10,10 +10,13 @@ const Appointment = () => {
   }, []);
   return (
     <div>
+      <h2 className="text-3xl text-center my-8 font-bold text-blue-800">
+        Appointment
+      </h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="bg-base-300 rounded">
             {bookings && (
               <tr>
                 <th className="font-bold text-[20px]">#</th>
@@ -30,7 +33,7 @@ const Appointment = () => {
                 return (
                   <>
                     <tr>
-                      <th className="font-bold text-[18px]">{index}</th>
+                      <th className="font-bold text-[18px]">{index + 1}</th>
                       <td className="font-bold text-[18px]">
                         {booking.doctor}
                       </td>

@@ -9,6 +9,7 @@
 } */
 html {
   --cursor-color: #7497f7;
+  font-weight: bold;
 }
 
 html.dark-mode {
@@ -30,6 +31,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-weight: 700;
+  font-weight: bold;
   font-family: "roboto";
 }

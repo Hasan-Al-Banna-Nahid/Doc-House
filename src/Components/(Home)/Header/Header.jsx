@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Header = () => {
   const [isDarkMood, setIsDarkMood] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut();
     toast.success("Log Out Successfully");

@@ -3,7 +3,8 @@ import "../globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaCalendarAlt, FaHome } from "react-icons/fa";
+import { FaCalendarAlt, FaEdit, FaHome, FaUsers } from "react-icons/fa";
+import { AiOutlineUserAdd } from "react-icons/ai";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,9 +17,10 @@ export const metadata = {
 };
 
 export default function Layout({ children }) {
+  const isAdmin = true;
   return (
     <html lang="en">
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open" style={{ fontFamily: { roboto } }}>
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {children}
@@ -26,40 +28,88 @@ export default function Layout({ children }) {
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            Menu
           </label>
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80  text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
-            <li>
-              <Image
-                width={150}
-                height={150}
-                src={
-                  "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
-                }
-              />
-            </li>
-            <div className="divide my-6  border border-red-700"></div>
+          {isAdmin ? (
+            <ul className="menu p-4 w-80  text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
+              <li>
+                <Image
+                  width={150}
+                  height={150}
+                  src={
+                    "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
+                  }
+                />
+              </li>
+              <li className="text-center">Dashboard</li>
+              <div className="divide my-6  border border-red-700"></div>
 
-            <li>
-              <Link href={"/dashboard/appointment"}>
-                <FaCalendarAlt className="mx-2" />
-                My Appointment
-              </Link>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-            <div className="divide  border border-blue-700 my-6"></div>
-            <li>
-              <Link href={"/"}>
-                <FaHome className="mx-2" />
-                Home
-              </Link>
-            </li>
-          </ul>
+              <li>
+                <Link href={"/dashboard/allUser"}>
+                  <FaUsers className="mx-2" /> All User
+                </Link>
+              </li>
+              <li>
+                <a>
+                  <FaCalendarAlt className="mx-2" />
+                  Manage Bookings
+                </a>
+              </li>
+              <li>
+                <a>
+                  <AiOutlineUserAdd className="mx-2" />
+                  Add a Doctor
+                </a>
+              </li>
+              <li>
+                <a>
+                  <FaEdit className="mx-2" />
+                  Manage Doctor
+                </a>
+              </li>
+              <div className="divide  border border-blue-700 my-6"></div>
+              <li>
+                <Link href={"/"}>
+                  <FaHome className="mx-2" />
+                  Home
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="menu p-4 w-80   text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
+              <li>
+                <Image
+                  width={150}
+                  height={150}
+                  src={
+                    "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
+                  }
+                />
+              </li>
+              <li className="text-center">Dashboard</li>
+              <div className="divide my-6  border border-red-700"></div>
+
+              <li>
+                <Link href={"/dashboard/appointment"}>
+                  <FaCalendarAlt className="mx-2" />
+                  My Appointment
+                </Link>
+              </li>
+              <li>
+                <a>Sidebar Item 2</a>
+              </li>
+              <div className="divide  border border-blue-700 my-6"></div>
+              <li>
+                <Link href={"/"}>
+                  <FaHome className="mx-2" />
+                  Home
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
       <body className={roboto.className}></body>
