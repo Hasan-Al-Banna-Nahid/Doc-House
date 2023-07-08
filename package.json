@@ -20,7 +20,6 @@
     "firebase": "^9.23.0",
     "mongodb": "^5.6.0",
     "next": "13.4.5",
-    "particles.js": "^2.0.0",
     "postcss": "8.4.24",
     "preact": "^10.15.1",
     "react": "18.2.0",
