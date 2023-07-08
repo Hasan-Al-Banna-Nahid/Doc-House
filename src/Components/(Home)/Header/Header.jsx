@@ -13,8 +13,11 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
+    const toastId = toast.loading("Loading...");
     logOut();
+    toast.dismiss(toastId);
     toast.success("Log Out Successfully");
+    localStorage.removeItem("access-token");
   };
   const handleToggle = () => {
     setIsDarkMood((isDarkMood) => !isDarkMood);

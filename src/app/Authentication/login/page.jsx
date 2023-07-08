@@ -10,7 +10,7 @@ import { FaGoogle } from "react-icons/fa";
 import Image from "next/image";
 
 const Login = () => {
-  const { handleEmailPasswordLogin, handleGoogleLogin } =
+  const { handleEmailPasswordLogin, handleGoogleLogin, user } =
     useContext(AuthContext);
   const router = useRouter();
   const GoogleLogin = () => {
@@ -18,6 +18,14 @@ const Login = () => {
       if (result.user) {
         router.push("/");
       }
+      fetch("https://dochouse.vercel.app/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: result.user.name,
+          email: result.user.email,
+        }),
+      });
     });
   };
   const handleSubmit = (e) => {
@@ -32,6 +40,11 @@ const Login = () => {
         router.push("/");
         toast.dismiss(toastId);
         toast.success("Login Successfully");
+        fetch("https://dochouse.vercel.app/user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: user.name, email: user.email }),
+        });
       })
       .catch((err) => {
         toast.error(err.message);

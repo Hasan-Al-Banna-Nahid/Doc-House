@@ -8,34 +8,40 @@ import { toast } from "react-toastify";
 const page = () => {
   const [user, setUser] = useState([]);
   const [isPending, startTransition] = useTransition();
+  const [loading, setLoading] = useState(false);
   const toastId = toast.loading("Loading");
-
+  const isLoading = isPending || loading;
   const router = useRouter();
+
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://dochouse.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
-  const handleAdmin = (id) => {
-    fetch(`http://localhost:5000/user/admin/${id}`, {
+  const handleAdmin = async (id) => {
+    setLoading(true);
+    await fetch(`https://dochouse.vercel.app/user/admin/${id}`, {
       method: "PATCH",
     })
-      .then((res) => res.json())
+      .then(await res.json())
       .then((data) => {
         toast.dismiss(toastId);
+        setLoading(false);
         toast.success("Admin Make Successfully");
         startTransition(() => {
           router.refresh();
         });
       });
   };
-  const handleUser = (id) => {
-    fetch(`http://localhost:5000/user/user/${id}`, {
+  const handleUser = async (id) => {
+    setLoading(true);
+    await fetch(`https://dochouse.vercel.app/user/user/${id}`, {
       method: "PATCH",
     })
-      .then((res) => res.json())
+      .then(await res.json())
       .then((data) => {
         toast.dismiss(toastId);
+        setLoading(false);
         toast.success("Admin Make Successfully");
         startTransition(() => {
           router.refresh();
@@ -59,10 +65,14 @@ const page = () => {
             {user.map((user, index) => {
               return (
                 <>
-                  <tr className="font-bold text-[22px] border-blue-600">
+                  <tr
+                    className={`font-bold text-[22px] border-blue-600${
+                      isLoading ? "opacity-50" : "opacity-100"
+                    } `}
+                  >
                     <th className="border-blue-600">{index + 1}</th>
-                    <td>{user.data.email}</td>
-                    <td className="border-blue-600">{user.data.name}</td>
+                    <td>{user.email}</td>
+                    <td className="border-blue-600">{user.name}</td>
                     <td className="border-blue-600">
                       <div className="flex gap-2">
                         <div>

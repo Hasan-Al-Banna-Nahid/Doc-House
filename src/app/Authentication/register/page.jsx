@@ -30,7 +30,7 @@ const Register = () => {
       toast.success("User Login Successfully");
       router.push("/");
     });
-    await axiosSecure.post("/user", { data: { email: result.user.email } });
+    await axiosSecure.post("/user");
   };
   const onSubmit = async (data, e) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ const Register = () => {
       setErrorMessage("Password Did Not Match");
       return;
     }
-    await axiosSecure.post("/user", { data: { name: name, email: email } });
+    await axiosSecure.post("/user");
   };
   return (
     <div>

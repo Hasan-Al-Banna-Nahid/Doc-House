@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { FaWallet } from "react-icons/fa";
 
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/booking")
+    fetch("https://dochouse.vercel.app/booking")
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
@@ -24,6 +25,7 @@ const Appointment = () => {
                 <th className="font-bold text-[20px]">time</th>
                 <th className="font-bold text-[20px]">Service</th>
                 <th className="font-bold text-[20px]">Date</th>
+                <th className="font-bold text-[20px]">Action</th>
               </tr>
             )}
           </thead>
@@ -42,6 +44,12 @@ const Appointment = () => {
                         {booking.service}
                       </td>
                       <td className="font-bold text-[18px]">{booking.date}</td>
+                      <td className="font-bold text-[22px]">
+                        <button>
+                          {" "}
+                          <FaWallet className="text-blue-600" />
+                        </button>{" "}
+                      </td>
                     </tr>
                   </>
                 );

@@ -30,7 +30,7 @@ const ContactData = () => {
     };
     const toastId = toast.loading("Loading");
     if (user) {
-      const res = await fetch(`http://localhost:5000/booking`, {
+      const res = await fetch(`https://dochouse.vercel.app/booking`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datas),

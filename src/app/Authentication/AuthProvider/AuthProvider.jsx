@@ -34,25 +34,33 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setLoading(false);
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (user) {
+        axios
+          .post("https://dochouse.vercel.app/jwt", {
+            email: user.email,
+          })
+          .then((res) => {
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
+          })
+
+          .catch((error) => {
+            console.log(error);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+        setLoading(false);
+      }
+      setUser(currentUser);
     });
-    if (user) {
-      axios
-        .post("http://localhost:5000/jwt", {
-          email: user.email,
-        })
-        .then((res) => {
-          localStorage.setItem("access-token", res.data.token);
-          setLoading(false);
-        });
-    } else {
-      localStorage.removeItem("access-token");
-      setLoading(false);
-    }
-    return unsubscribe;
+
+    return () => {
+      return unsubscribe();
+    };
   }, []);
+
   const authInfo = {
     user,
     loading,

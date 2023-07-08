@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useRouter();
 
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://dochouse.vercel.app",
   });
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const useAxiosSecure = () => {
         ) {
           await logOut();
           navigate.push("/Authentication/login");
+          localStorage.removeItem("access-token");
         }
         return Promise.reject(error);
       }

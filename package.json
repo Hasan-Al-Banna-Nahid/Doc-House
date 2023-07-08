@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.19",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
