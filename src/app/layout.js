@@ -1,7 +1,7 @@
 "use client";
 import "./globals.css";
 
-import { Montserrat, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import AuthProvider from "./Authentication/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
