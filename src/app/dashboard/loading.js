@@ -9,5 +9,3 @@ const loading = () => {
     </div>
   );
 };
-
-export default loading;
