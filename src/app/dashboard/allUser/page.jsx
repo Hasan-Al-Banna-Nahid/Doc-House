@@ -65,11 +65,7 @@ const page = () => {
             {user.map((user, index) => {
               return (
                 <>
-                  <tr
-                    className={`font-bold text-[22px] border-blue-600${
-                      isLoading ? "opacity-50" : "opacity-100"
-                    } `}
-                  >
+                  <tr className="font-bold text-[22px] border-blue-600">
                     <th className="border-blue-600">{index + 1}</th>
                     <td>{user.email}</td>
                     <td className="border-blue-600">{user.name}</td>
@@ -116,3 +112,4 @@ const page = () => {
     </div>
   );
 };
+export default page;
