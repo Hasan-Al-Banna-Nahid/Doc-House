@@ -15,7 +15,7 @@ const Testimonial = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("Testimonial.json", { cache: "force-cache" })
+    fetch("Testimonial.json")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

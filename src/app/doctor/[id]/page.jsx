@@ -131,3 +131,4 @@ const doctor = async ({ params }) => {
     </>
   );
 };
+export default doctor;
