@@ -1,3 +1,4 @@
+"use client";
 import ServiceAndTime from "@/Components/(Home)/ServiceTimeAndLocation/ServiceTimeAndLocation";
 import Footer from "@/Components/(Home)/Footer/Footer";
 import Header from "@/Components/(Home)/Header/Header";
