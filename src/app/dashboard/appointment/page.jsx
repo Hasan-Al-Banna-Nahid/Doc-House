@@ -5,7 +5,7 @@ import { FaWallet } from "react-icons/fa";
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch("https://dochouse.vercel.app/booking")
+    fetch("http://localhost:5000/booking")
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);

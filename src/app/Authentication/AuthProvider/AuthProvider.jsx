@@ -12,7 +12,7 @@ import {
 import app from "../firebase.config";
 import axios from "axios";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const handleGoogleLogin = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
   const logOut = () => {
@@ -37,7 +38,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (user) {
         axios
-          .post("https://dochouse.vercel.app/jwt", {
+          .post("http://localhost:5000/jwt", {
             email: user.email,
           })
           .then((res) => {

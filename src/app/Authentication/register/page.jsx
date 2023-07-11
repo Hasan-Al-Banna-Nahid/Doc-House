@@ -15,6 +15,9 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [axiosSecure] = useAxiosSecure();
   const router = useRouter();
+  const handleRouteToLogin = () => {
+    router.push("/Authentication/login");
+  };
   const { handleEmailPasswordSignUp, handleGoogleLogin } =
     useContext(AuthContext);
   const {
@@ -182,10 +185,10 @@ const Register = () => {
                   <FaGoogle className="text-[26px] text-[#F4B400] mt-2" />
                 </button>
               </div>
-              <Link href={"/Authentication/login"} className="text-slate-900">
+              <div onClick={handleRouteToLogin} className="text-slate-900">
                 Already Have An Account Please{" "}
                 <button className="btn btn-primary"> Login</button>
-              </Link>
+              </div>
             </div>
           </div>
         </div>

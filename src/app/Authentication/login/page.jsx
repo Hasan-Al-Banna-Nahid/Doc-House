@@ -1,6 +1,5 @@
 "use client";
 import Header from "@/Components/(Home)/Header/Header";
-import Link from "next/link";
 import React, { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useRouter } from "next/navigation";
@@ -13,12 +12,15 @@ const Login = () => {
   const { handleEmailPasswordLogin, handleGoogleLogin, user } =
     useContext(AuthContext);
   const router = useRouter();
+  const handleRouteToSignUp = () => {
+    router.push("/Authentication/register");
+  };
   const GoogleLogin = () => {
     handleGoogleLogin().then((result) => {
       if (result.user) {
         router.push("/");
       }
-      fetch("https://dochouse.vercel.app/user", {
+      fetch("http://localhost:5000/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -40,7 +42,7 @@ const Login = () => {
         router.push("/");
         toast.dismiss(toastId);
         toast.success("Login Successfully");
-        fetch("https://dochouse.vercel.app/user", {
+        fetch("http://localhost:5000/user", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: user.name, email: user.email }),
@@ -113,13 +115,10 @@ const Login = () => {
                     <FaGoogle className="text-[26px] text-[#F4B400] mt-2" />
                   </button>
                 </div>
-                <Link
-                  href={"/Authentication/register"}
-                  className="text-slate-900"
-                >
+                <div onClick={handleRouteToSignUp} className="text-slate-900">
                   New To Doc House Please{" "}
                   <button className="btn btn-primary"> Sign Up</button>
-                </Link>
+                </div>
               </div>
             </div>
           </div>
