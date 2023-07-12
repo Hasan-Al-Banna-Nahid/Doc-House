@@ -5,9 +5,16 @@ import Image from "next/image";
 
 import React, { useState } from "react";
 import Calendar from "react-calendar";
+import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 
 const Appointment = () => {
   const [value, onChange] = useState(new Date());
+  useCalendlyEventListener({
+    onProfilePageViewed: () => console.log("onProfilePageViewed"),
+    onDateAndTimeSelected: () => console.log("onDateAndTimeSelected"),
+    onEventTypeViewed: () => console.log("onEventTypeViewed"),
+    onEventScheduled: (e) => console.log(e.data.payload),
+  });
 
   return (
     <div>
@@ -27,10 +34,16 @@ const Appointment = () => {
                 <h2 className="text-2xl font-bold text-blue-500">
                   Select A Date For Appointment
                 </h2>
-                <Calendar
+                {/* <Calendar
                   className="text-slate-900"
                   onChange={onChange}
                   value={value}
+                  defaultValue={value}
+                /> */}
+                <InlineWidget
+                  className="calendly-inline-widget"
+                  styles={{ minWidth: "500px", height: "300px" }}
+                  url="https://calendly.com/iamnahid591998/one-on-one-with-me"
                 />
               </div>
             </div>
@@ -38,7 +51,9 @@ const Appointment = () => {
         </div>
         <div className="text-center my-4">
           <h2 className="text-orange-500 font-bold mb-4">
-            Available Services on &nbsp; {Date()}
+            Available Services on &nbsp;
+            {new Date().getDate()} {" / "} {new Date().getMonth() + 1} {" / "}{" "}
+            {new Date().getFullYear()}
           </h2>
           <h2 className="text-3xl text-slate-900 font-bold">
             Please Select A Service

@@ -62,10 +62,10 @@ export default function Layout({ children }) {
                 </Link>
               </li>
               <li>
-                <a>
+                <Link href={"/dashboard/ManageBookings"}>
                   <FaCalendarAlt className="mx-2" />
                   Manage Bookings
-                </a>
+                </Link>
               </li>
               <li>
                 <a>
