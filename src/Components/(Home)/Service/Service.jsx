@@ -5,25 +5,10 @@ import doctor from "../../../../public/Assests/Doctors/portrait-smiling-handsome
 import teeth from "../../../../public/Assests/fbai_pbu0_160610-removebg-preview.png";
 import DigestiveSystem from "../../../../public/Assests/gastric-removebg-preview.png";
 import "./Service.css";
-import AnimatedCursor from "react-animated-cursor";
 
 const Service = () => {
   return (
     <div>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
       <div className="flex">
         <div className="my-[100px] ">
           <Image

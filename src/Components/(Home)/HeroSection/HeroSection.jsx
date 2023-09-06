@@ -6,25 +6,10 @@ import HeroImage from "../../../../public/Assests/medicine-capsules-global-healt
 import Doctor1 from "../../../../public/Assests/Doctors/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture-removebg-preview.png";
 import Doctor2 from "../../../../public/Assests/Doctors/successful-medical-team-removebg-preview.png";
 import Doctor3 from "../../../../public/Assests/Doctors/smiling-doctor-with-strethoscope-isolated-grey-removebg-preview.png";
-import AnimatedCursor from "react-animated-cursor";
 
 const HeroSection = () => {
   return (
     <div className="heroSection">
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
       <Image
         width={1800}
         unoptimized={false}

@@ -11,6 +11,9 @@ const ManageBookings = () => {
   }, []);
   return (
     <div>
+      <h2 className="text-3xl text-center my-8 font-bold text-blue-800">
+        Manage Bookings
+      </h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

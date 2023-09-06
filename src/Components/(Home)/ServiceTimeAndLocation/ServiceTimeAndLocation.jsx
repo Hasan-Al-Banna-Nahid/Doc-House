@@ -6,26 +6,12 @@ import {
   FaPhoneAlt,
   FaSearchLocation,
 } from "react-icons/fa";
-import AnimatedCursor from "react-animated-cursor";
+
 const Contact = () => {
   return (
     <div>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
-      <div className="grid md:grid-cols-3 md:p-48 gap-12">
-        <div className="flex bg-[#07332F] p-12 rounded-lg text-[20px] text-white">
+      <div className="grid md:grid-cols-3 gap-12">
+        <div className="flex md:w-[400px] bg-[#07332F] p-12 rounded-lg text-[20px] text-white">
           <div>
             <FaClock className="text-4xl ms-4" />
           </div>

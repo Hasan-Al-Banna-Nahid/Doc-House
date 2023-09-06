@@ -1,7 +1,6 @@
 "use client";
 import React, { useContext, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import AnimatedCursor from "react-animated-cursor";
 import Link from "next/link";
 import Login from "@/app/Authentication/login/page";
 import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
@@ -34,20 +33,6 @@ const Header = () => {
 
   return (
     <div>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
       <ToastContainer />
       <div className="navbar text-[#6c5ce7] font-bold  fixed bg-transparent z-30">
         <div className="navbar-start">

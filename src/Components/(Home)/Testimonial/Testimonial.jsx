@@ -8,8 +8,7 @@ import "swiper/css/navigation";
 
 import { Autoplay, EffectFade, Navigation } from "swiper";
 import Image from "next/image";
-import AnimatedCursor from "react-animated-cursor";
-import { useRouter } from "next/router";
+
 const Testimonial = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,20 +25,6 @@ const Testimonial = () => {
 
   return (
     <div>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={2}
-        outerAlpha={0}
-        hasBlendMode={true}
-        innerStyle={{
-          backgroundColor: "var(--cursor-color)",
-        }}
-        outerStyle={{
-          border: "3px solid var(--cursor-color)",
-        }}
-      />
       <div className="text-center my-6">
         <h2 className="text-3xl font-bold my-4">What Our Patients Say</h2>
         <p className="text-xl my-4">
@@ -53,7 +38,7 @@ const Testimonial = () => {
       {loading && (
         <h2 className="text-center text-2xl text-red-700">Loading...</h2>
       )}
-      <div>
+      <div className="w-[600px] mx-auto p-12">
         <Swiper
           navigation={true}
           autoplay

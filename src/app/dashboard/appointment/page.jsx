@@ -1,6 +1,7 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { FaWallet } from "react-icons/fa";
+import { FaTrashAlt, FaWallet } from "react-icons/fa";
 
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
@@ -25,7 +26,7 @@ const Appointment = () => {
                 <th className="font-bold text-[20px]">time</th>
                 <th className="font-bold text-[20px]">Service</th>
                 <th className="font-bold text-[20px]">Date</th>
-                <th className="font-bold text-[20px]">Action</th>
+                <th className="font-bold text-[20px]">Actions</th>
               </tr>
             )}
           </thead>
@@ -45,10 +46,21 @@ const Appointment = () => {
                       </td>
                       <td className="font-bold text-[18px]">{booking.date}</td>
                       <td className="font-bold text-[22px]">
-                        <button>
-                          {" "}
-                          <FaWallet className="text-blue-600" />
-                        </button>{" "}
+                        <div className="flex gap-4">
+                          <div>
+                            <Link href={"/dashboard/payment"}>
+                              <button className="text-[18px]">
+                                {" "}
+                                <FaWallet className="text-blue-600" />
+                              </button>{" "}
+                            </Link>
+                          </div>
+                          <div>
+                            <button className="text-[18px] text-red-700">
+                              <FaTrashAlt />
+                            </button>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   </>
