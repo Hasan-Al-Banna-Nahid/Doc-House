@@ -48,7 +48,7 @@ const Appointment = () => {
                       <td className="font-bold text-[22px]">
                         <div className="flex gap-4">
                           <div>
-                            <Link href={"/dashboard/payment"}>
+                            <Link>
                               <button className="text-[18px]">
                                 {" "}
                                 <FaWallet className="text-blue-600" />
