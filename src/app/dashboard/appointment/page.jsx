@@ -48,12 +48,12 @@ const Appointment = () => {
                       <td className="font-bold text-[22px]">
                         <div className="flex gap-4">
                           <div>
-                            <Link>
+                            <a>
                               <button className="text-[18px]">
                                 {" "}
                                 <FaWallet className="text-blue-600" />
                               </button>{" "}
-                            </Link>
+                            </a>
                           </div>
                           <div>
                             <button className="text-[18px] text-red-700">
