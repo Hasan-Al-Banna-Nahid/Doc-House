@@ -1,6 +1,6 @@
 "use client";
 
-import { Elements } from "@stripe/react-stripe-js";
+// import { Elements } from "@stripe/react-stripe-js";
 import { Elements } from "react-stripe-elements";
 import CheckoutForm from "./CheckoutForm/page";
 import { loadStripe } from "@stripe/stripe-js";
