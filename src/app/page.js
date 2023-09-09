@@ -8,6 +8,7 @@ import Testimonial from "@/Components/(Home)/Testimonial/Testimonial";
 import { Suspense } from "react";
 import Contact from "@/Components/(Home)/Contact/Contact";
 import Doctors from "@/Components/(Home)/Doctors/Doctors";
+import OurMedicalFeature from "@/Components/(Home)/OurMedicalFeature/page";
 
 const metadata = {
   title: "Home | Doc House",
@@ -30,6 +31,7 @@ const Home = () => {
       >
         <Testimonial />
       </Suspense>
+      <OurMedicalFeature />
       <Doctors />
       <Contact />
       <Footer />

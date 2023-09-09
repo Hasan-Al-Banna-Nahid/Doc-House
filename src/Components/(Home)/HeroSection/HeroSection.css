@@ -10,17 +10,12 @@
     left: 0;
   }
   .title {
-    font-size: 25px;
-  }
-  .subtitle {
-    font-size: 16px;
-  }
-  .doc1,
-  .doc2,
-  .doc3 {
     display: none;
   }
-  .titleInfo {
-    margin: 30px 50px;
-  }
+}
+.title {
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  color: black !important;
 }

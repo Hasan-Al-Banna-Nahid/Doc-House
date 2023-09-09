@@ -24,21 +24,19 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <div>
-      <div className="text-center my-6">
-        <h2 className="text-3xl font-bold my-4">What Our Patients Say</h2>
+    <div className="mt-8">
+      <div className="text-center ">
+        <h2 className="text-4xl font-bold my-4 text-purple-700">
+          What Our Patients Say
+        </h2>
         <p className="text-xl my-4">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium <br />
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve{" "}
-          <br />
-          ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Our Client's & Patient's Best Words For Us
         </p>
       </div>
       {loading && (
         <h2 className="text-center text-2xl text-red-700">Loading...</h2>
       )}
-      <div className="w-[1200px] mx-auto p-12">
+      <div className="md:w-[1200px] mx-auto ">
         <Swiper
           navigation={true}
           autoplay

@@ -51,7 +51,7 @@ const ContactData = () => {
     <>
       <form onSubmit={handleBooking}>
         <ToastContainer />
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 mx-auto md:w-[800px] gap-6">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Your Email</span>
@@ -136,11 +136,9 @@ const ContactData = () => {
               <span className="label-text">Date</span>
             </label>
             <label className="input-group">
-              <span className="bg-slate-600 input input-bordered w-96">
-                Date <BsCalendar2Date className="text-2xl ms-4" />
-              </span>
+              <span className="bg-slate-700">Date</span>
               <input
-                type="text"
+                type="date"
                 placeholder="01-01-2023"
                 className="input input-bordered text-slate-800"
                 name="date"
@@ -171,8 +169,8 @@ const ContactData = () => {
           </div>
         </div>
         <button
-          className="btn my-4 bg-[#F7A582] font-bold text-[20px]"
-          style={{ width: "100%" }}
+          className="btn my-4 md:w-full bg-[#F7A582] font-bold text-[20px]"
+          // style={{ width: "100%" }}
         >
           Book Now
         </button>

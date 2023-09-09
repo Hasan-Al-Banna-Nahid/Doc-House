@@ -17,7 +17,7 @@ const Contact = () => {
           </div>
           <div className="p-4">
             <h2>Opening Hours</h2>
-            <p>Open 9.00 am to 5.00pm Everyday</p>
+            <p>Open 24/7 Everyday</p>
           </div>
         </div>
         <div>

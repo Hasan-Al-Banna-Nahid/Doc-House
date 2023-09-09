@@ -18,11 +18,7 @@ const Doctors = () => {
       <div className="text-center">
         <h2 className="my-4 font-bold text-2xl">Our Expert Doctors</h2>
         <p className="my-4 font-semibold">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa{" "}
-          <br />
-          quae ab illo inve ntore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo.
+          Our Best's Doctor For Everyone's Good Health
         </p>
         <div>
           <div className="grid md:grid-cols-3 gap-6 w-[1300px] mx-auto text-slate-900">
@@ -62,6 +58,11 @@ const Doctors = () => {
               })}
           </div>
         </div>
+      </div>
+      <div className="w-96 mx-auto text-center my-8">
+        <button className="badge badge-outline badge-primary p-4 mx-auto w-96">
+          View All Doctor
+        </button>
       </div>
     </div>
   );

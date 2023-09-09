@@ -43,7 +43,7 @@ const Appointment = () => {
                 <InlineWidget
                   className="calendly-inline-widget"
                   styles={{ minWidth: "500px", height: "300px" }}
-                  url="https://calendly.com/iamnahid591998/one-on-one-with-me"
+                  url="https://calendly.com/iamnahid591998/zoom-meeting"
                 />
               </div>
             </div>

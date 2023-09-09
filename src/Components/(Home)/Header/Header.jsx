@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const darkMood = () => {
-    document.body.style.backgroundColor = "#2f3640";
+    document.body.style.backgroundColor = "#2d3436";
     document.body.style.color = "#f5f6fa";
   };
   const lightMood = () => {

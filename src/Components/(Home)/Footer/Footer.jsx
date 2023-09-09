@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-300 text-slate-900 text-neutral-content">
+      <footer className="footer md:p-10 bg-base-300 text-slate-900 ">
         <div>
           <Image
             width={100}
@@ -20,11 +21,11 @@ const Footer = () => {
             Providing reliable Medical Solution since 1992
           </p>
           <button className="btn w-96 bg-[#F7A582] btn-outline">
-            Appointment
+            <Link href={"/appointment"}>Appointment</Link>
           </button>
         </div>
         {/* Links */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mx-auto">
           <div>
             <h2 className="text-[20px] text-slate-950 font-bold my-4">
               Quick Links
@@ -72,7 +73,7 @@ const Footer = () => {
 
         <div>
           <span className="footer-title">Social</span>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col mx-auto text-center  gap-4">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

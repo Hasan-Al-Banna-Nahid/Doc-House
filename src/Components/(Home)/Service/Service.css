@@ -5,4 +5,7 @@
   .teeth {
     display: none;
   }
+  .doctor {
+    visibility: hidden;
+  }
 }
