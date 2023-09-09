@@ -2,7 +2,7 @@
 import React from "react";
 import "./HeroSection.css";
 import Image from "next/image";
-import HeroImage from "../../../../public/Assests/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg";
+import HeroImage from "../../../../public/medicine-capsules-global-health-with-geometric-pattern-digital-remix.jpg";
 import Doctor1 from "../../../../public/Assests/Doctors/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture-removebg-preview.png";
 import Doctor2 from "../../../../public/Assests/Doctors/successful-medical-team-removebg-preview.png";
 import Doctor3 from "../../../../public/Assests/Doctors/smiling-doctor-with-strethoscope-isolated-grey-removebg-preview.png";
