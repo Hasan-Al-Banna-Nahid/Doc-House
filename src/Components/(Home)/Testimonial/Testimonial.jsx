@@ -38,7 +38,7 @@ const Testimonial = () => {
       {loading && (
         <h2 className="text-center text-2xl text-red-700">Loading...</h2>
       )}
-      <div className="w-[600px] mx-auto p-12">
+      <div className="w-[1200px] mx-auto p-12">
         <Swiper
           navigation={true}
           autoplay
