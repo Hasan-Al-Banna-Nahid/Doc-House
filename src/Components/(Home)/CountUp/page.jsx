@@ -3,7 +3,7 @@ import "./style.css";
 import CountUp from "react-countup";
 function CountUpProgress() {
   return (
-    <div className="App flex justify-center items-center gap-12 my-8">
+    <div className="md:flex sm:gap-6 mx-auto md:w-[800px] justify-center items-center gap-12 my-8">
       <div className="circle-progress">
         <div>
           <h2 className="text-blue-600 font-bold">Diagonistic</h2>
