@@ -1,7 +1,6 @@
 "use client";
 import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
 import { useContext } from "react";
-import { BsCalendar2Date } from "react-icons/bs";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -51,10 +50,10 @@ const ContactData = () => {
     <>
       <form onSubmit={handleBooking}>
         <ToastContainer />
-        <div className="grid md:grid-cols-2 mx-auto md:w-[800px] gap-6">
+        <div className="grid md:grid-cols-2 mx-auto md:w-[800px] gap-6                    ">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Your Email</span>
+              <span className="label-text text-white">Your Email</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Email</span>
@@ -70,7 +69,7 @@ const ContactData = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Your Name</span>
+              <span className="label-text text-white">Your Name</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Name</span>
@@ -86,7 +85,7 @@ const ContactData = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Your Phone</span>
+              <span className="label-text text-white">Your Phone</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Mobile</span>
@@ -102,7 +101,7 @@ const ContactData = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Doctor Name</span>
+              <span className="label-text text-white">Doctor Name</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Doctor</span>
@@ -117,7 +116,7 @@ const ContactData = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Service</span>
+              <span className="label-text text-white">Service</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Service</span>
@@ -133,7 +132,7 @@ const ContactData = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Date</span>
+              <span className="label-text text-white">Date</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-700">Date</span>
@@ -144,17 +143,12 @@ const ContactData = () => {
                 name="date"
                 required
               />
-              {/* <DatePicker
-                className="w-[1px]"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-              /> */}
             </label>
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Time</span>
+              <span className="label-text text-white">Time</span>
             </label>
             <label className="input-group">
               <span className="bg-slate-600">Time</span>

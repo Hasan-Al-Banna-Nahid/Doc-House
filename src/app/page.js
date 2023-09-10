@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import Contact from "@/Components/(Home)/Contact/Contact";
 import Doctors from "@/Components/(Home)/Doctors/Doctors";
 import OurMedicalFeature from "@/Components/(Home)/OurMedicalFeature/page";
+import CountUpProgress from "@/Components/(Home)/CountUp/page";
 
 const metadata = {
   title: "Home | Doc House",
@@ -21,6 +22,7 @@ const Home = () => {
       <Header />
       <HeroSection />
       <Service />
+      <CountUpProgress />
       <ServiceAndTime />
       <Suspense
         fallback={

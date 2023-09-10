@@ -12,6 +12,9 @@ import { FaHandHoldingMedical } from "react-icons/fa";
 const OurMedicalFeature = () => {
   return (
     <div className="bg-[#1B1464] text-white p-6 rounded-lg">
+      <h2 className="text-3xl text-center my-4 text-yellow-500">
+        Our Specialization
+      </h2>
       <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
