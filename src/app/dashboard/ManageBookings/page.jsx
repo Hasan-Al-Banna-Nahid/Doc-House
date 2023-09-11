@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
 
 const ManageBookings = () => {
   const [bookings, setBooking] = useState([]);
@@ -9,8 +10,22 @@ const ManageBookings = () => {
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
+  const data = {
+    recipient: "IamBanna591998@gmail.com",
+    subject: "Invitation Accepted",
+    content: "You have accepted the invitation.",
+  };
+  const handleBooking = () => {
+    fetch("http://localhost:5000/email")
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Service Booked");
+      });
+  };
+
   return (
     <div>
+      <ToastContainer />
       <h2 className="text-3xl text-center my-8 font-bold text-blue-800">
         Manage Bookings
       </h2>
@@ -19,7 +34,7 @@ const ManageBookings = () => {
           {/* head */}
           <thead>
             <tr>
-              <th className="text-[20px] font-bold"></th>
+              <th className="text-[20px] font-bold">#</th>
               <th className="text-[20px] font-bold">Name</th>
               <th className="text-[20px] font-bold">Service</th>
               <th className="text-[20px] font-bold">Email </th>
@@ -30,14 +45,14 @@ const ManageBookings = () => {
             {/* row 1 */}
             {bookings.map((booking, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <th className="text-[18px] font-bold">{index + 1}</th>
                   <td className="text-[18px] font-bold">{booking.name}</td>
                   <td className="text-[18px] font-bold"> {booking.service}</td>
                   <td className="text-[18px] font-bold">{booking.userEmail}</td>
                   <td>
                     <div className="flex gap-4 items-center">
-                      <div>
+                      <div onClick={handleBooking}>
                         <button className="btn">Accept</button>
                       </div>
                       <div>

@@ -52,7 +52,7 @@ export default function Layout({ children }) {
               </li>
               <Link href={"/dashboard"}>
                 {" "}
-                <li className="text-center">Dashboard</li>
+                <li className="text-center">Admin Dashboard</li>
               </Link>
               <div className="divide my-6  border border-red-700"></div>
 
@@ -101,7 +101,7 @@ export default function Layout({ children }) {
               </li>
               <Link href={"/dashboard"}>
                 {" "}
-                <li className="text-center">Dashboard</li>
+                <li className="text-center">User Dashboard</li>
               </Link>
               <div className="divide my-6  border border-red-700"></div>
 

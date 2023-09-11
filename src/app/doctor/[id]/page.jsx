@@ -19,6 +19,7 @@ const Doctor = async ({ params }) => {
   //     specialization,
   //   } = await loadSingleBlogData(params.id);
   const data = await loadSingleBlogData(params.id);
+  console.log(data);
   return (
     <div>
       <button className="badge mx-auto text-center my-4 md:w-[400px] badge-outline badge-primary p-6">
@@ -27,7 +28,7 @@ const Doctor = async ({ params }) => {
       <div>
         <div className="md:flex md:w-[800px] mx-auto justify-center items-center gap-4 bg-slate-400 rounded-lg p-6 my-6">
           <div>
-            {/* <Image
+            <Image
               src={
                 "/Assests/Doctors/portrait-smiling-handsome-male-doctor-man.jpg"
               }
@@ -35,12 +36,12 @@ const Doctor = async ({ params }) => {
               height={400}
               alt="Doctor Image"
               className="border-4"
-            /> */}
+            />
           </div>
           <div>
             <div>
               <h2 className="text-2xl font-bold text-slate-900">
-                {data.doctorName}
+                {data.map((doctor) => doctor.doctorName)}
               </h2>
             </div>
           </div>
