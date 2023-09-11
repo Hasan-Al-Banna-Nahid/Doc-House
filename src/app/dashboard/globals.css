@@ -10,8 +10,14 @@
 html {
   --cursor-color: #7497f7;
   font-weight: bold;
+  scroll-behavior: smooth;
 }
-
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: fit-content;
+}
 html.dark-mode {
   --cursor-color: #010241;
 }

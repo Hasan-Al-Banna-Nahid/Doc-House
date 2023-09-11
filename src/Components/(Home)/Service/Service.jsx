@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import doctor from "../../../../public/Assests/4033 (2).png";
 import DigestiveSystem from "../../../../public/Assests/gastric-removebg-preview.png";
 import "./Service.css";
+import Link from "next/link";
 
 const Service = () => {
   return (
@@ -66,7 +67,7 @@ const Service = () => {
             </div>
             <div>
               <button className="badge-outline badge-warning my-6 badge p-6">
-                View All Service
+                <Link href={"/AllService"}> View All Service</Link>
               </button>
             </div>
             <div>

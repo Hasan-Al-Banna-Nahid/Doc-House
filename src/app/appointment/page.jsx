@@ -19,9 +19,9 @@ const Appointment = () => {
   return (
     <div>
       <Header />
-      <form className="min-w-max">
+      <form className="mx-auto">
         <div>
-          <div className="hero min-h-screen min-w-max bg-base-200">
+          <div className="hero min-h-screen bg-base-200">
             <div className="hero-content mx-auto flex-col lg:flex-row-reverse">
               <div>
                 <Image
@@ -46,7 +46,7 @@ const Appointment = () => {
             </div>
           </div>
         </div>
-        <div className="text-center bg-slate-500 p-4 rounded-lg my-4 min-w-max">
+        <div className="text-center bg-slate-500 p-4 rounded-lg my-4 ">
           <h2 className="text-orange-500 font-bold mb-4">
             Available Services on &nbsp;
             {new Date().getDate()} {" / "} {new Date().getMonth() + 1} {" / "}{" "}
@@ -56,7 +56,7 @@ const Appointment = () => {
             Please Select A Service
           </h2>
         </div>
-        <div className="grid bg-base-300 service p-4 rounded-lg md:grid-cols-3 sm:grid-cols-2 gap-6 my-6 mx-auto md:w-[800px]">
+        <div className="grid bg-base-300 service p-4 rounded-lg md:grid-cols-3  gap-6 my-6 mx-auto ">
           <div>
             <div className="flex justify-center items-center gap-2">
               <div>
@@ -160,9 +160,8 @@ const Appointment = () => {
           </div>
         </div>
       </form>
-      <div className="min-w-max">
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 };
