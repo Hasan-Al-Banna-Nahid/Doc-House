@@ -10,13 +10,14 @@ const ManageBookings = () => {
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
-  const data = {
-    recipient: "IamBanna591998@gmail.com",
-    subject: "Invitation Accepted",
-    content: "You have accepted the invitation.",
-  };
-  const handleBooking = () => {
-    fetch("http://localhost:5000/email")
+
+  const handleBooking = (booking) => {
+    const data = { email: booking.userEmail };
+    fetch(`http://localhost:5000/email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
       .then((res) => res.json())
       .then((data) => {
         toast.success("Service Booked");
@@ -52,7 +53,7 @@ const ManageBookings = () => {
                   <td className="text-[18px] font-bold">{booking.userEmail}</td>
                   <td>
                     <div className="flex gap-4 items-center">
-                      <div onClick={handleBooking}>
+                      <div onClick={() => handleBooking(booking)}>
                         <button className="btn">Accept</button>
                       </div>
                       <div>
