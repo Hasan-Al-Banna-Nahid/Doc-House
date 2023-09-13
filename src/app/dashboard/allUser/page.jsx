@@ -14,15 +14,18 @@ const page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://dochouse-iamnahid591998-gmailcom.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
   const handleAdmin = async (id) => {
     setLoading(true);
-    await fetch(`http://localhost:5000/user/admin/${id}`, {
-      method: "PATCH",
-    })
+    await fetch(
+      `https://dochouse-iamnahid591998-gmailcom.vercel.app/user/admin/${id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then(await res.json())
       .then((data) => {
         toast.dismiss(toastId);
@@ -35,9 +38,12 @@ const page = () => {
   };
   const handleUser = async (id) => {
     setLoading(true);
-    await fetch(`http://localhost:5000/user/user/${id}`, {
-      method: "PATCH",
-    })
+    await fetch(
+      `https://dochouse-iamnahid591998-gmailcom.vercel.app/user/user/${id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then(await res.json())
       .then((data) => {
         toast.dismiss(toastId);

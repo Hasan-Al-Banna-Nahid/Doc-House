@@ -20,7 +20,7 @@ const Login = () => {
       if (result.user) {
         router.push("/");
       }
-      fetch("http://localhost:5000/user", {
+      fetch("https://dochouse-iamnahid591998-gmailcom.vercel.app/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -42,7 +42,7 @@ const Login = () => {
         router.push("/");
         toast.dismiss(toastId);
         toast.success("Login Successfully");
-        fetch("http://localhost:5000/user", {
+        fetch("https://dochouse-iamnahid591998-gmailcom.vercel.app/user", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: user.name, email: user.email }),

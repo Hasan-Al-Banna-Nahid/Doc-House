@@ -29,11 +29,14 @@ const ContactData = () => {
     };
     const toastId = toast.loading("Loading");
     if (user) {
-      const res = await fetch(`http://localhost:5000/booking`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(datas),
-      });
+      const res = await fetch(
+        `https://dochouse-iamnahid591998-gmailcom.vercel.app/booking`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(datas),
+        }
+      );
       const data = await res.json();
       console.log(data);
       if (data) {
