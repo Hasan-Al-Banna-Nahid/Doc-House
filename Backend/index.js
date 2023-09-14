@@ -83,7 +83,7 @@ async function run() {
       // }
       // console.log(email);
       const info = await transporter.sendMail({
-        from: '"Fred Foo 👻" <iambanna300@gmail.com>',
+        from: '"Doc House 👻" <iambanna300@gmail.com>',
         to: email,
         subject: "Booking Confirmed ✔",
         text: `Your Booking Is Successfully Confirmed for${service}`,
