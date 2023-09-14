@@ -8,7 +8,7 @@ const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    fetch("https://dochouse-iamnahid591998-gmailcom.vercel.app/doctors")
+    fetch("https://dochouse.vercel.app/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
