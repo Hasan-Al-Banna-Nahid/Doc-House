@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (user) {
         axios
-          .post("https://dochouse-iamnahid591998-gmailcom.vercel.app/jwt", {
+          .post("https://dochouse.vercel.app/jwt", {
             email: user.email,
           })
           .then((res) => {
