@@ -32,10 +32,10 @@ const defaultUser = async (req, res) => {
 const existingUser = async (req, res) => {
   const user = req.body;
   const query = { email: user.email };
-  const existingUser = await usersCollection.findOne(query);
-  if (existingUser) {
-    res.send({ message: "User Already Exist" });
-  }
+  // const existingUser = await usersCollection.findOne(query);
+  // if (existingUser) {
+  //   res.send({ message: "User Already Exist" });
+  // }
   const result = await usersCollection.insertOne(user);
   res.send(result);
 };
