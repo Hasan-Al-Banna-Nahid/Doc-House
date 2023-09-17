@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "https://doc-house.vercel.app",
+    origin: "https://doc-house.vercel.app" || "http://localhost:3000",
   })
 );
 
