@@ -2,7 +2,9 @@ const { ObjectId } = require("mongodb");
 const { usersCollection } = require("../Model/user.collection");
 
 const user = async (req, res) => {
+  console.log(usersCollection);
   const result = await usersCollection.find().toArray();
+  // console.log(result);
   res.send(result);
 };
 const admin = async (req, res) => {

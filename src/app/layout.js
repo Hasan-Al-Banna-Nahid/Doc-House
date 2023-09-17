@@ -1,13 +1,13 @@
 "use client";
 import "./globals.css";
 
-import { Roboto } from "next/font/google";
+import { Lato, Roboto } from "next/font/google";
 import AuthProvider from "./Authentication/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const roboto = Roboto({
+const roboto = Lato({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "700", "900"],
 });
 const metadata = {
   title: "Doc House",

@@ -22,6 +22,7 @@ const Login = () => {
       }
       fetch("https://dochouse.vercel.app/user", {
         method: "POST",
+
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: result.user.name,

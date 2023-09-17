@@ -21,8 +21,8 @@ router.get("/user/admin/:email", admin);
 router.get("/user/user/:email", defaultUser);
 router.post("/booking", sendBooking);
 router.post("/email", email);
-router.post("/jwt", sendToken);
 router.post("/user", existingUser);
+router.post("/jwt", sendToken);
 router.patch("/user/admin/:id", makeAdmin);
 router.patch("/user/user/:id", makeDefaultUser);
 

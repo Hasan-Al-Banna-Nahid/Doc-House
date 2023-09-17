@@ -5,7 +5,11 @@ const router = require("./Routes/route");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 204, // Some legacy browsers (IE11) may require 204
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(router);
 
