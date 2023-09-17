@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@trycourier/courier": "^5.1.0",
