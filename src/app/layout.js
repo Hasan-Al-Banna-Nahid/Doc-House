@@ -18,11 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={roboto.className}>
-          <QueryClientProvider client={queryClient}>
-            {children}
-          </QueryClientProvider>
-        </body>
+        <QueryClientProvider client={queryClient}>
+          <body className={roboto.className}>{children}</body>
+        </QueryClientProvider>
       </AuthProvider>
     </html>
   );
