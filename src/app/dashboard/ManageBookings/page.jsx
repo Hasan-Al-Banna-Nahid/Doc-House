@@ -29,17 +29,19 @@ const ManageBookings = () => {
         }
       });
   };
-  const handleRemoveBooking = (id) => {
-    fetch(`https://dochouse.vercel.app/booking/${id}`, { method: "DELETE" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const remainingAppointment = bookings.filter((id) => id._id !== id);
-          setBooking(remainingAppointment);
-          toast.success("Appointment Is Removed");
-        }
-      });
-  };
+};
+const handleRemoveBooking = (id) => {
+  fetch(`https://dochouse.vercel.app/booking/${id}`, { method: "DELETE" })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.deletedCount > 0) {
+        const remainingAppointment = bookings.filter(
+          (booking) => booking._id !== id
+        );
+        setBooking(remainingAppointment);
+        toast.success("Appointment Is Removed");
+      }
+    });
   return (
     <div>
       <ToastContainer />
