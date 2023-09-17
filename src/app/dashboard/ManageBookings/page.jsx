@@ -29,7 +29,17 @@ const ManageBookings = () => {
         }
       });
   };
-
+  const handleRemoveBooking = (id) => {
+    fetch(`https://dochouse.vercel.app/booking/${id}`, { method: "DELETE" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remainingAppointment = bookings.filter((id) => id._id !== id);
+          setBooking(remainingAppointment);
+          toast.success("Appointment Is Removed");
+        }
+      });
+  };
   return (
     <div>
       <ToastContainer />
@@ -62,7 +72,7 @@ const ManageBookings = () => {
                       <div onClick={() => handleBooking(booking)}>
                         <button className="btn">Accept</button>
                       </div>
-                      <div>
+                      <div onClick={() => handleRemoveBooking(booking._id)}>
                         <button>
                           <FaTrash className=" text-red-700 text-[18px]" />
                         </button>

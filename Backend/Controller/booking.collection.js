@@ -10,4 +10,9 @@ const sendBooking = async (req, res) => {
   const result = await bookingCollections.insertOne(body);
   res.send(result);
 };
-module.exports = { booking, sendBooking };
+const deleteBooking = async (req, res) => {
+  const id = req.params.id;
+  const result = await bookingCollections.deleteOne(id);
+  res.send(result);
+};
+module.exports = { booking, sendBooking, deleteBooking };

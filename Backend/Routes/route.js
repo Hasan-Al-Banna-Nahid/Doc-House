@@ -1,7 +1,11 @@
 const express = require("express");
 const { doctors, singleDoctor } = require("../Controller/doctors.controller");
 const { email } = require("../Controller/email.post");
-const { booking, sendBooking } = require("../Controller/booking.collection");
+const {
+  booking,
+  sendBooking,
+  deleteBooking,
+} = require("../Controller/booking.collection");
 const {
   user,
   admin,
@@ -25,5 +29,6 @@ router.post("/user", existingUser);
 router.post("/jwt", sendToken);
 router.patch("/user/admin/:id", makeAdmin);
 router.patch("/user/user/:id", makeDefaultUser);
+router.delete("/booking/:id", deleteBooking);
 
 module.exports = router;
