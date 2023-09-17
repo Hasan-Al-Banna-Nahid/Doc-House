@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 const ManageBookings = () => {
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/booking")
+    fetch("https://dochouse.vercel.app/booking")
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
@@ -17,7 +17,7 @@ const ManageBookings = () => {
       service: booking.service,
       name: booking.name,
     };
-    fetch(`http://localhost:5000/email`, {
+    fetch(`https://dochouse.vercel.app/email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

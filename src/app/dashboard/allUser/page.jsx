@@ -14,13 +14,13 @@ const page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://dochouse.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
   const handleAdmin = async (id) => {
     setLoading(true);
-    await fetch(`http://localhost:5000/user/admin/${id}`, {
+    await fetch(`https://dochouse.vercel.app/user/admin/${id}`, {
       method: "PATCH",
     })
       .then(await res.json())
@@ -35,7 +35,7 @@ const page = () => {
   };
   const handleUser = async (id) => {
     setLoading(true);
-    await fetch(`http://localhost:5000/user/user/${id}`, {
+    await fetch(`https://dochouse.vercel.app/user/user/${id}`, {
       method: "PATCH",
     })
       .then(await res.json())
