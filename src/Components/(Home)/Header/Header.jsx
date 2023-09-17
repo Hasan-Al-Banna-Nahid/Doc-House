@@ -2,7 +2,6 @@
 import React, { useContext, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import Link from "next/link";
-import Login from "@/app/Authentication/login/page";
 import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

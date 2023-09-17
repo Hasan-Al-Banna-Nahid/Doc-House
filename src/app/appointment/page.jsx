@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import "./style.css";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import ContactData from "@/Components/(Home)/ContactData/ContactData";
 
 const Appointment = () => {
   const [value, onChange] = useState(new Date());
@@ -43,6 +44,18 @@ const Appointment = () => {
                   url="https://calendly.com/iamnahid591998/zoom-meeting"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="bg-[#06332F]  text-white md:w-[1200px] rounded p-12 my-4 mx-auto">
+            <div>
+              <h2 className="text-purple-700 text-3xl my-4 p-4 text-center">
+                Book A Service
+              </h2>
+            </div>
+            <div className=" mx-auto">
+              <ContactData />
             </div>
           </div>
         </div>

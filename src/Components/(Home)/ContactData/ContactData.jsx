@@ -53,7 +53,7 @@ const ContactData = () => {
     <>
       <form onSubmit={handleBooking}>
         <ToastContainer />
-        <div className="grid md:grid-cols-2 mx-auto md:w-[800px] gap-6                    ">
+        <div className="grid md:grid-cols-2 mx-auto md:w-[800px] gap-6 text-slate-800">
           <div className="form-control">
             <label className="label">
               <span className="label-text text-white">Your Email</span>
