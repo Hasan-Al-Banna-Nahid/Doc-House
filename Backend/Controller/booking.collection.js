@@ -12,7 +12,7 @@ const sendBooking = async (req, res) => {
 };
 const deleteBooking = async (req, res) => {
   const id = req.params.id;
-  const query = new objectId(id);
+  const query = { id: new objectId(id) };
   const result = await bookingCollections.deleteOne(query);
   res.send(result);
 };
