@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPhoneAlt, FaLocationArrow } from "react-icons/fa";
 import ContactData from "../ContactData/ContactData";
 
 const Contact = () => {

@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useRouter();
 
   const axiosSecure = axios.create({
-    baseURL: "https://dochouse-iamnahid591998-gmailcom.vercel.app",
+    baseURL: "https://dochouse.vercel.app",
   });
 
   useEffect(() => {

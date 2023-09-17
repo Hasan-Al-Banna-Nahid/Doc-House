@@ -6,7 +6,7 @@ import { FaTrashAlt, FaWallet } from "react-icons/fa";
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch("https://dochouse-iamnahid591998-gmailcom.vercel.app/booking")
+    fetch("https://dochouse.vercel.app/booking")
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
