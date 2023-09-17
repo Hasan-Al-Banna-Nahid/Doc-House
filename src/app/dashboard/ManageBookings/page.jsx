@@ -24,24 +24,15 @@ const ManageBookings = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data) {
-          toast.success("Service Booked");
-        }
+        toast.success("Service Booked");
       });
   };
-};
-const handleRemoveBooking = (id) => {
-  fetch(`https://dochouse.vercel.app/booking/${id}`, { method: "DELETE" })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.deletedCount > 0) {
-        const remainingAppointment = bookings.filter(
-          (booking) => booking._id !== id
-        );
-        setBooking(remainingAppointment);
-        toast.success("Appointment Is Removed");
-      }
+  const handleRemoveBooking = (booking) => {
+    fetch(`https://dochouse.vercel.app/booking/${booking._id}`, {
+      method: "DELETE",
     });
+  };
+
   return (
     <div>
       <ToastContainer />
@@ -68,13 +59,15 @@ const handleRemoveBooking = (id) => {
                   <th className="text-[18px] font-bold">{index + 1}</th>
                   <td className="text-[18px] font-bold">{booking.name}</td>
                   <td className="text-[18px] font-bold"> {booking.service}</td>
-                  <td className="text-[18px] font-bold">{booking.userEmail}</td>
+                  <td className="text-[18px] font-bold">
+                    {booking.userEmail || booking.email}
+                  </td>
                   <td>
                     <div className="flex gap-4 items-center">
                       <div onClick={() => handleBooking(booking)}>
                         <button className="btn">Accept</button>
                       </div>
-                      <div onClick={() => handleRemoveBooking(booking._id)}>
+                      <div onClick={() => handleRemoveBooking(booking)}>
                         <button>
                           <FaTrash className=" text-red-700 text-[18px]" />
                         </button>

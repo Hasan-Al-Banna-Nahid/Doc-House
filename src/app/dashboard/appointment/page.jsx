@@ -10,6 +10,11 @@ const Appointment = () => {
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);
+  const handleRemoveBooking = (booking) => {
+    fetch(`https://dochouse.vercel.app/booking/${booking._id}`, {
+      method: "DELETE",
+    });
+  };
   return (
     <div>
       <h2 className="text-3xl text-center my-8 font-bold text-blue-800">
@@ -55,7 +60,7 @@ const Appointment = () => {
                               </button>{" "}
                             </a>
                           </div>
-                          <div>
+                          <div onClick={() => handleRemoveBooking(booking)}>
                             <button className="text-[18px] text-red-700">
                               <FaTrashAlt />
                             </button>

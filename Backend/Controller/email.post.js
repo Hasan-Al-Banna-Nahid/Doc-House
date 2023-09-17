@@ -48,6 +48,7 @@ const email = async (req, res) => {
       },
     },
   });
+  console.log(requestId);
 
   const info = await transporter.sendMail({
     from: '"Doc House 👻" <iambanna300@gmail.com>',
