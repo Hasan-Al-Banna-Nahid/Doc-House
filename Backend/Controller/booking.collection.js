@@ -1,5 +1,5 @@
+const { ObjectId } = require("mongodb");
 const { bookingCollections } = require("../Model/booking.collection");
-const { objectId } = require("mongodb");
 const booking = async (req, res) => {
   const result = await bookingCollections.find().toArray();
   res.send(result);
@@ -12,7 +12,7 @@ const sendBooking = async (req, res) => {
 };
 const deleteBooking = async (req, res) => {
   const id = req.params.id;
-  const query = { id: new objectId(id) };
+  const query = { id: new ObjectId(id) };
   const result = await bookingCollections.deleteOne(query);
   res.send(result);
 };
