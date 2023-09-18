@@ -37,6 +37,10 @@ const ManageBookings = () => {
         if (data.deletedCount > 0) {
           toast.dismiss(toastId);
           toast.success("Booking Cancelled");
+          const remaining = bookings.filter(
+            (booking) => booking._id !== booking._id
+          );
+          setBooking(remaining);
         }
       })
       .catch((err) => console.log(err));
