@@ -36,26 +36,27 @@ const email = async (req, res) => {
   //   return;
   // }
   // console.log(email);
+
   const { requestId } = await courier.send({
     message: {
       to: {
         email: email,
+        phone_number: "01330423673",
       },
       template: "47VSD7NYNR49XVNYQ7HE4X7NK580",
-      data: {
+      content: {
         recipientName: name,
         service: service,
       },
     },
   });
-  console.log(requestId);
 
   const info = await transporter.sendMail({
     from: '"Doc House 👻" <iambanna300@gmail.com>',
     to: email,
-    subject: "Booking Confirmed ✔",
-    text: `Your Booking Is Successfully Confirmed for${service}`,
-    html: `<b>Your Booking Is Successfully Confirmed for${service}</b>`,
+    subject: `Booking Confirmed for ${service} ✔`,
+    text: ``,
+    html: `Your Booking Is Successfully Confirmed for${service}`,
   });
   console.log("Message sent: %s", info.messageId);
 

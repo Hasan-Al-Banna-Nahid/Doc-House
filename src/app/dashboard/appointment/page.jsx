@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaTrashAlt, FaWallet } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
 
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
@@ -13,10 +14,20 @@ const Appointment = () => {
   const handleRemoveBooking = (booking) => {
     fetch(`https://dochouse.vercel.app/booking/${booking._id}`, {
       method: "DELETE",
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const toastId = toast.loading("Loading");
+        if (data.deletedCount > 0) {
+          toast.dismiss(toastId);
+          toast.success("Booking Cancelled");
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
+      <ToastContainer />
       <h2 className="text-3xl text-center my-8 font-bold text-blue-800">
         Appointment
       </h2>
