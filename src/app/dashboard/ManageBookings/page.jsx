@@ -27,8 +27,8 @@ const ManageBookings = () => {
         toast.success("Service Booked");
       });
   };
-  const handleRemoveBooking = (booking) => {
-    fetch(`https://dochouse.vercel.app/booking/${booking._id}`, {
+  const handleRemoveBooking = (bookings) => {
+    fetch(`https://dochouse.vercel.app/booking/${bookings._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -38,7 +38,7 @@ const ManageBookings = () => {
           toast.dismiss(toastId);
           toast.success("Booking Cancelled");
           const remaining = bookings.filter(
-            (booking) => booking._id !== booking._id
+            (booking) => booking._id !== bookings._id
           );
           setBooking(remaining);
         }
