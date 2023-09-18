@@ -17,6 +17,7 @@ const ContactData = () => {
     const time = form.time.value;
     const date = form.date.value;
     const service = form.service.value;
+    const status = form.status.value;
     const datas = {
       email,
       name,
@@ -25,6 +26,7 @@ const ContactData = () => {
       time,
       date,
       service,
+      status,
       userEmail: user?.email,
     };
     const toastId = toast.loading("Loading");
@@ -157,6 +159,23 @@ const ContactData = () => {
                 placeholder="7:00 PM"
                 className="input input-bordered text-slate-800"
                 name="time"
+                required
+              />
+            </label>
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-white">Status</span>
+            </label>
+            <label className="input-group">
+              <span className="bg-slate-600">Status</span>
+              <input
+                type="text"
+                placeholder="Pending"
+                defaultValue={"Pending"}
+                className="input input-bordered text-slate-800"
+                name="status"
+                readOnly
                 required
               />
             </label>

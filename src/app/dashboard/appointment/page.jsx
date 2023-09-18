@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
+  console.log(bookings);
   useEffect(() => {
     fetch("https://dochouse.vercel.app/booking")
       .then((res) => res.json())
@@ -47,6 +48,7 @@ const Appointment = () => {
                 <th className="font-bold text-[20px]">Service</th>
                 <th className="font-bold text-[20px]">Date</th>
                 <th className="font-bold text-[20px]">Actions</th>
+                <th className="font-bold text-[20px]">Status</th>
               </tr>
             )}
           </thead>
@@ -81,6 +83,11 @@ const Appointment = () => {
                             </button>
                           </div>
                         </div>
+                      </td>
+                      <td>
+                        <button className="badge badge-primary badge-outline p-6">
+                          {booking.status || "No Progress"}
+                        </button>
                       </td>
                     </tr>
                   </>
