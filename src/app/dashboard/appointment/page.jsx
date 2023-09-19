@@ -1,14 +1,16 @@
 "use client";
+import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaTrashAlt, FaWallet } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 
 const Appointment = () => {
   const [bookings, setBooking] = useState([]);
   console.log(bookings);
+  const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch("https://dochouse.vercel.app/booking")
+    fetch(`https://dochouse.vercel.app/booking/`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, []);

@@ -7,18 +7,49 @@ import React, { useState } from "react";
 import "./style.css";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import ContactData from "@/Components/(Home)/ContactData/ContactData";
+import { ToastContainer, toast } from "react-toastify";
 
 const Appointment = () => {
   const [value, onChange] = useState(new Date());
+  const [date, setDate] = useState("");
+  const [event, setEvent] = useState("");
+
+  const handleEventScheduled = (e) => {
+    setEvent(e.data.payload);
+    console.log("onEventScheduled");
+
+    fetch("https://dochouse.vercel.app/booking", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }, // Fixed typo here
+      body: JSON.stringify({ ZOOM: date, event }),
+    })
+      .then((response) => {
+        // Handle the response from the backend if needed
+        if (response.ok) {
+          toast.success("Event data sent successfully to the backend.");
+        } else {
+          toast.error("Failed to send event data to the backend.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending event data:", error);
+      });
+  };
+
+  // Use the useCalendlyEventListener hook with the event listener
   useCalendlyEventListener({
     onProfilePageViewed: () => console.log("onProfilePageViewed"),
-    onDateAndTimeSelected: () => console.log("onDateAndTimeSelected"),
+    onDateAndTimeSelected: (e) => {
+      setDate(e.data.payload);
+      console.log("onDateAndTimeSelected");
+    },
     onEventTypeViewed: () => console.log("onEventTypeViewed"),
-    onEventScheduled: (e) => console.log(e.data.payload),
+    onEventScheduled: handleEventScheduled,
   });
 
   return (
     <div>
+      <ToastContainer />
       <Header />
       <form className="mx-auto">
         <div>
