@@ -59,6 +59,8 @@ const page = () => {
         if (data.deletedCount > 0) {
           toast.success("User Remove Successfully");
         }
+        const remaining = user.filter((id) => id._id !== id);
+        setUser(remaining);
         startTransition(() => {
           router.refresh();
         });
