@@ -38,7 +38,7 @@ const page = () => {
     await fetch(`https://dochouse.vercel.app/user/user/${id}`, {
       method: "PATCH",
     })
-      .then(await res.json())
+      .then((res) => res.json())
       .then((data) => {
         toast.dismiss(toastId);
         setLoading(false);
@@ -52,7 +52,7 @@ const page = () => {
     await fetch(`https://dochouse.vercel.app/user/${id}`, {
       method: "DELETE",
     })
-      .then(await res.json())
+      .then((res) => res.json())
       .then((data) => {
         toast.dismiss(toastId);
         setLoading(false);
