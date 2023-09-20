@@ -13,6 +13,7 @@ const {
   existingUser,
   makeAdmin,
   makeDefaultUser,
+  deleteUser,
 } = require("../Controller/user.collection");
 const { sendToken } = require("../Controller/token");
 const router = express.Router();
@@ -30,5 +31,6 @@ router.post("/jwt", sendToken);
 router.patch("/user/admin/:id", makeAdmin);
 router.patch("/user/user/:id", makeDefaultUser);
 router.delete("/booking/:id", deleteBooking);
+router.delete("/user/:id", deleteUser);
 
 module.exports = router;

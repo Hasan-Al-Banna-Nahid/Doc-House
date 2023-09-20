@@ -2,9 +2,7 @@ const { ObjectId } = require("mongodb");
 const { usersCollection } = require("../Model/user.collection");
 
 const user = async (req, res) => {
-  // console.log(usersCollection);
   const result = await usersCollection.find().toArray();
-  // console.log(result);
   res.send(result);
 };
 const admin = async (req, res) => {
@@ -34,10 +32,10 @@ const defaultUser = async (req, res) => {
 const existingUser = async (req, res) => {
   const user = req.body;
   const query = { email: user.email };
-  // const existingUser = await usersCollection.findOne(query);
-  // if (existingUser) {
-  //   res.send({ message: "User Already Exist" });
-  // }
+  const existingUser = await usersCollection.findOne(query);
+  if (existingUser) {
+    res.send({ message: "User Already Exist" });
+  }
   const result = await usersCollection.insertOne(user);
   res.send(result);
 };
@@ -65,6 +63,12 @@ const makeDefaultUser = async (req, res) => {
   const result = await usersCollection.updateOne(query, updatedDoc);
   res.send(result);
 };
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: new ObjectId(id) };
+  const result = await usersCollection.deleteOne(query);
+  res.send(result);
+};
 module.exports = {
   user,
   admin,
@@ -72,4 +76,5 @@ module.exports = {
   existingUser,
   makeAdmin,
   makeDefaultUser,
+  deleteUser,
 };

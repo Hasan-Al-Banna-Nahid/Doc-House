@@ -55,6 +55,7 @@ const Register = () => {
         toast.error(err.message);
       });
     if (password !== confirmPassword) {
+      toast.dismiss(toastId);
       setErrorMessage("Password Did Not Match");
       return;
     }
@@ -62,9 +63,9 @@ const Register = () => {
   };
   return (
     <div>
+      <ToastContainer />
       <Header />
       <div className="hero min-h-screen bg-base-200">
-        <ToastContainer />
         <div className="hero-content flex-col lg:flex-row">
           <Image
             width={800}

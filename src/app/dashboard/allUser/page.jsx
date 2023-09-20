@@ -48,6 +48,22 @@ const page = () => {
         });
       });
   };
+  const handleRemoveUser = async (id) => {
+    await fetch(`https://dochouse.vercel.app/user/${id}`, {
+      method: "DELETE",
+    })
+      .then(await res.json())
+      .then((data) => {
+        toast.dismiss(toastId);
+        setLoading(false);
+        if (data.deletedCount > 0) {
+          toast.success("User Remove Successfully");
+        }
+        startTransition(() => {
+          router.refresh();
+        });
+      });
+  };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -68,7 +84,7 @@ const page = () => {
                   <tr className="font-bold text-[22px] border-blue-600">
                     <th className="border-blue-600">{index + 1}</th>
                     <td>{user.email}</td>
-                    <td className="border-blue-600">{user.name}</td>
+                    <td className="border-blue-600">{user?.name}</td>
                     <td className="border-blue-600">
                       <div className="flex gap-2">
                         <div>
@@ -88,14 +104,16 @@ const page = () => {
                             {user.role === "user" ? (
                               <button className="btn">User</button>
                             ) : (
-                              <FaUserShield
+                              <p
                                 onClick={() => handleUser(user._id)}
-                                className="text-blue-500 text-[26px]"
-                              />
+                                className="text-blue-500 text-[26px] badge badge-warning p-4"
+                              >
+                                Make User
+                              </p>
                             )}
                           </button>
                         </div>
-                        <div>
+                        <div onClick={() => handleRemoveUser(user._id)}>
                           <button>
                             <FaTrash className="text-red-500 text-[26px]" />
                           </button>

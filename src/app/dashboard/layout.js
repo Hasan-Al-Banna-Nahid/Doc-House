@@ -22,6 +22,7 @@ const metadata = {
 export default function Layout({ children }) {
   const [isAdmin] = useAdmin();
   const [isUser] = useUser();
+  console.log(isUser);
   return (
     <html lang="en">
       <div className="drawer lg:drawer-open" style={{ fontFamily: { roboto } }}>
