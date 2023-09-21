@@ -77,6 +77,7 @@ const page = () => {
               <th>Email</th>
               <th>Name</th>
               <th>Action</th>
+              <th>Designation</th>
             </tr>
           </thead>
           <tbody>
@@ -90,29 +91,25 @@ const page = () => {
                     <td className="border-blue-600">
                       <div className="flex gap-2">
                         <div>
-                          <button>
-                            {user.role === "admin" ? (
-                              <button className="btn">Admin</button>
-                            ) : (
-                              <FaUserShield
-                                onClick={() => handleAdmin(user._id)}
-                                className="text-blue-500 text-[26px]"
-                              />
-                            )}
+                          <button disabled={user?.role === "admin"}>
+                            <p
+                              onClick={() => handleAdmin(user._id)}
+                              className="text-blue-500 text-[16px] badge badge-neutral p-6"
+                            >
+                              Make Admin
+                            </p>
                           </button>
                         </div>
                         <div>
-                          <button>
-                            {user.role === "user" ? (
-                              <button className="btn">User</button>
-                            ) : (
+                          <button disabled={user?.role === "user"}>
+                            {
                               <p
                                 onClick={() => handleUser(user._id)}
-                                className="text-blue-500 text-[26px] badge badge-warning p-4"
+                                className=" text-[16px] badge badge-primary text-white p-4"
                               >
                                 Make User
                               </p>
-                            )}
+                            }
                           </button>
                         </div>
                         <div onClick={() => handleRemoveUser(user._id)}>
@@ -121,6 +118,11 @@ const page = () => {
                           </button>
                         </div>
                       </div>
+                    </td>
+                    <td>
+                      <button className="btn btn-outline btn-success p-4">
+                        {user?.role}
+                      </button>
                     </td>
                   </tr>
                 </>

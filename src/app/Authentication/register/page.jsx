@@ -18,7 +18,7 @@ const Register = () => {
   const handleRouteToLogin = () => {
     router.push("/Authentication/login");
   };
-  const { handleEmailPasswordSignUp, handleGoogleLogin } =
+  const { handleEmailPasswordSignUp, handleGoogleLogin, setLoading } =
     useContext(AuthContext);
   const {
     register,
@@ -26,14 +26,21 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const toastId = toast.loading("Loading...");
   const GoogleLogin = async () => {
+    const toastId = toast.loading("Loading...");
     handleGoogleLogin().then((result) => {
       toast.dismiss(toastId);
       toast.success("User Login Successfully");
+      fetch("https://dochouse.vercel.app/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: result.user.name,
+          email: result.user.email,
+        }),
+      });
       router.push("/");
     });
-    await axiosSecure.post("/user");
   };
   const onSubmit = async (data, e) => {
     e.preventDefault();
@@ -42,24 +49,33 @@ const Register = () => {
     const name = form.name.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
-    const toastId = toast.loading("Loading...");
+    const designation = form.designation.value;
+    const datas = { email, name, designation };
     handleEmailPasswordSignUp(email, password)
       .then((data) => {
+        const toastId = toast.loading("Loading...");
         form.reset();
         toast.dismiss(toastId);
         toast.success("User Created Successfully");
         router.push("/Authentication/login");
+        fetch("https://dochouse.vercel.app/user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ datas }),
+        });
       })
       .catch((err) => {
+        const toastId = toast.loading("Loading...");
         toast.dismiss(toastId);
         toast.error(err.message);
       });
     if (password !== confirmPassword) {
+      const toastId = toast.loading("Loading...");
       toast.dismiss(toastId);
       setErrorMessage("Password Did Not Match");
       return;
     }
-    await axiosSecure.post("/user");
+    // await axiosSecure.post("/user");
   };
   return (
     <div>
@@ -166,6 +182,26 @@ const Register = () => {
                       required: true,
                     })}
                   />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-bold">Designation</span>
+                  </label>
+
+                  <span className="text-red-600">{errorMessage}</span>
+                  <select
+                    {...register("designation", {
+                      required: true,
+                    })}
+                    name="designation"
+                    id=""
+                  >
+                    <option value="doctor">Doctor</option>
+                    <option value="nurse">Nurse</option>
+                    <option value="administration">Administration</option>
+                    <option value="lab">Lab</option>
+                    <option value="account">Account</option>
+                  </select>
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Sign Up</button>
