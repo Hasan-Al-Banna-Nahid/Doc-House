@@ -5,9 +5,12 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase.config";
 import axios from "axios";
@@ -33,6 +36,15 @@ const AuthProvider = ({ children }) => {
   };
   const logOut = () => {
     return signOut(auth);
+  };
+  const handleResetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+  const updateUserProfile = (user, name, photo) => {
+    return updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -70,6 +82,8 @@ const AuthProvider = ({ children }) => {
     handleEmailPasswordLogin,
     handleGoogleLogin,
     logOut,
+    handleResetPassword,
+    updateUserProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -68,15 +68,19 @@ const page = () => {
   };
   return (
     <div>
+      <h2 className="text-3xl font-bold text-purple-800 text-center">
+        All Users
+      </h2>
       <div className="overflow-x-auto">
-        <table className="table border-blue-600">
+        <table className="table border-blue-600 text-center">
           {/* head */}
-          <thead className="bg-base-300 font-bold text-2xl rounded">
+          <thead className="bg-base-300 font-bold text-2xl rounded text-center">
             <tr>
-              <th></th>
+              <th>*</th>
               <th>Email</th>
               <th>Name</th>
               <th>Action</th>
+              <th>Authorization</th>
               <th>Designation</th>
             </tr>
           </thead>
@@ -86,8 +90,8 @@ const page = () => {
                 <>
                   <tr className="font-bold text-[22px] border-blue-600">
                     <th className="border-blue-600">{index + 1}</th>
-                    <td>{user.email}</td>
-                    <td className="border-blue-600">{user?.name}</td>
+                    <td>{user?.email || user?.datas?.email}</td>
+                    <td className="border-blue-600">{user?.datas?.name}</td>
                     <td className="border-blue-600">
                       <div className="flex gap-2">
                         <div>
@@ -124,6 +128,7 @@ const page = () => {
                         {user?.role}
                       </button>
                     </td>
+                    <td>{user?.datas?.designation}</td>
                   </tr>
                 </>
               );

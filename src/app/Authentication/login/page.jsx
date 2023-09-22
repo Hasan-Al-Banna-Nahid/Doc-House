@@ -7,10 +7,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaGoogle } from "react-icons/fa";
 import Image from "next/image";
+import { useRef } from "react";
 
 const Login = () => {
-  const { handleEmailPasswordLogin, handleGoogleLogin, user } =
-    useContext(AuthContext);
+  const {
+    handleEmailPasswordLogin,
+    handleGoogleLogin,
+    user,
+    handleResetPassword,
+  } = useContext(AuthContext);
+  const emailRef = useRef();
   const router = useRouter();
   const handleRouteToSignUp = () => {
     router.push("/Authentication/register");
@@ -34,11 +40,26 @@ const Login = () => {
         router.push("/");
         toast.dismiss(toastId);
         toast.success("Login Successfully");
+        console.log(data);
       })
       .catch((err) => {
         toast.error(err.message);
         toast.dismiss(toastId);
       });
+  };
+  const ResetPassword = () => {
+    const email = emailRef.current.value;
+    handleResetPassword(email)
+      .then(() => {
+        alert("Check Your Email");
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+    if (!email) {
+      alert("Please Type Your Email for Reset Password");
+    }
   };
 
   return (
@@ -63,6 +84,7 @@ const Login = () => {
                     </label>
 
                     <input
+                      ref={emailRef}
                       type="text"
                       placeholder="Your Email"
                       className="w-96 input input-bordered font-bold"
@@ -90,6 +112,9 @@ const Login = () => {
                   </div>
                 </div>
               </form>
+              <button onClick={ResetPassword} className="link btn">
+                Reset Password
+              </button>
               <div className="divider text-slate-900">OR</div>
               <div className="form-control">
                 <div

@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
 import Image from "next/image";
+import { updateCurrentUser } from "firebase/auth";
 
 const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,8 +19,13 @@ const Register = () => {
   const handleRouteToLogin = () => {
     router.push("/Authentication/login");
   };
-  const { handleEmailPasswordSignUp, handleGoogleLogin, setLoading } =
-    useContext(AuthContext);
+  const {
+    handleEmailPasswordSignUp,
+    handleGoogleLogin,
+    setLoading,
+    updateUserProfile,
+    user,
+  } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -39,6 +45,7 @@ const Register = () => {
           email: result.user.email,
         }),
       });
+      updateUserProfile(user, result.user.name, result.user.PhotoURL);
       router.push("/");
     });
   };
@@ -49,6 +56,7 @@ const Register = () => {
     const name = form.name.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
+    const photo = form.photo.value;
     const designation = form.designation.value;
     const datas = { email, name, designation };
     handleEmailPasswordSignUp(email, password)
@@ -69,6 +77,7 @@ const Register = () => {
         toast.dismiss(toastId);
         toast.error(err.message);
       });
+    updateUserProfile(user, name, photo);
     if (password !== confirmPassword) {
       const toastId = toast.loading("Loading...");
       toast.dismiss(toastId);
@@ -77,6 +86,7 @@ const Register = () => {
     }
     // await axiosSecure.post("/user");
   };
+
   return (
     <div>
       <ToastContainer />
@@ -133,6 +143,7 @@ const Register = () => {
                     type="file"
                     className="input input-bordered"
                     required
+                    name="photo"
                     {...register("photo", { required: true })}
                   />
                 </div>

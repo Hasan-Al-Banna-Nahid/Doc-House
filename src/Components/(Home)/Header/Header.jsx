@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AuthContext } from "@/app/Authentication/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import profileImage from "../../../../public/Assests/avatar.jpg";
+import Image from "next/image";
 
 const Header = () => {
   const [isDarkMood, setIsDarkMood] = useState(false);
@@ -90,11 +92,7 @@ const Header = () => {
                 <Link href={"/appointment"}> Appointment</Link>
               </li>
             )}
-            {user && (
-              <li className="text-[20px]">
-                <Link href={"/dashboard"}> Dashboard</Link>
-              </li>
-            )}
+
             <li>
               <div onClick={handleToggle} className="shadow-2xl ">
                 {!isDarkMood ? (
@@ -113,15 +111,42 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <button onClick={handleLogOut} className="btn">
-              Logout
-            </button>
-          ) : (
-            <Link href={"/Authentication/login"} className="btn">
-              Login
-            </Link>
-          )}
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <Image src={user?.photoURL || profileImage} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">
+                    {user?.name || user?.displayName}
+                  </span>
+                </a>
+              </li>
+              <li>{user && <Link href={"/dashboard"}> Dashboard</Link>}</li>
+              <li>
+                <a>Settings</a>
+              </li>
+
+              <li>
+                {user ? (
+                  <button onClick={handleLogOut} className="btn">
+                    Logout
+                  </button>
+                ) : (
+                  <Link href={"/Authentication/login"} className="btn">
+                    Login
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -1,17 +1,17 @@
 "use client";
-import { Roboto } from "next/font/google";
+import { Lato, Roboto } from "next/font/google";
 import "../globals.css";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FaCalendarAlt, FaEdit, FaHome, FaUsers } from "react-icons/fa";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import useAdmin from "@/Components/Hooks/useAdmin";
 import useUser from "@/Components/Hooks/useUser";
 
-const roboto = Roboto({
+const roboto = Lato({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "700", "900"],
 });
 
 const metadata = {
@@ -23,135 +23,142 @@ export default function Layout({ children }) {
   const [isAdmin] = useAdmin();
   const [isUser] = useUser();
   console.log(isUser);
+  const [isOpen, setIsOpen] = useState([]);
+  const handleDrawer = () => {
+    setIsOpen((toggle) => !toggle);
+  };
   return (
     <html lang="en">
-      <div className="drawer lg:drawer-open" style={{ fontFamily: { roboto } }}>
+      <div className="drawer drawer-open" style={{ fontFamily: { roboto } }}>
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {children}
 
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="btn btn-primary drawer-button "
+            onClick={handleDrawer}
           >
             Menu
           </label>
         </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          {isAdmin === true && (
-            <ul className="menu p-4 w-80  text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
-              <li>
-                <Image
-                  width={150}
-                  height={150}
-                  src={
-                    "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
-                  }
-                />
-              </li>
-              <Link href={"/dashboard"}>
-                {" "}
-                <li className="text-center">Admin Dashboard</li>
-              </Link>
-              <div className="divide my-6  border border-red-700"></div>
+        {isOpen && (
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+            {isAdmin === true && (
+              <ul className="menu p-4 w-80  text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
+                <li>
+                  <Image
+                    width={150}
+                    height={150}
+                    src={
+                      "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
+                    }
+                  />
+                </li>
+                <Link href={"/dashboard"}>
+                  {" "}
+                  <li className="text-center">Admin Dashboard</li>
+                </Link>
+                <div className="divide my-6  border border-red-700"></div>
 
-              <li>
-                <Link href={"/dashboard/allUser"}>
-                  <FaUsers className="mx-2" /> All User
+                <li>
+                  <Link href={"/dashboard/allUser"}>
+                    <FaUsers className="mx-2" /> All User
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/dashboard/ManageBookings"}>
+                    <FaCalendarAlt className="mx-2" />
+                    Manage Bookings
+                  </Link>
+                </li>
+                <li>
+                  <a>
+                    <AiOutlineUserAdd className="mx-2" />
+                    Add a Doctor
+                  </a>
+                </li>
+                <li>
+                  <a>
+                    <FaEdit className="mx-2" />
+                    Manage Doctor
+                  </a>
+                </li>
+                <div className="divide  border border-blue-700 my-6"></div>
+                <li>
+                  <Link href={"/"}>
+                    <FaHome className="mx-2" />
+                    Home
+                  </Link>
+                </li>
+              </ul>
+            )}
+            {isUser === true && (
+              <ul className="menu p-4 w-80   text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
+                <li>
+                  <Image
+                    width={150}
+                    height={150}
+                    src={
+                      "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
+                    }
+                  />
+                </li>
+                <Link href={"/dashboard"}>
+                  {" "}
+                  <li className="text-center">User Dashboard</li>
                 </Link>
-              </li>
-              <li>
-                <Link href={"/dashboard/ManageBookings"}>
-                  <FaCalendarAlt className="mx-2" />
-                  Manage Bookings
-                </Link>
-              </li>
-              <li>
-                <a>
-                  <AiOutlineUserAdd className="mx-2" />
-                  Add a Doctor
-                </a>
-              </li>
-              <li>
-                <a>
-                  <FaEdit className="mx-2" />
-                  Manage Doctor
-                </a>
-              </li>
-              <div className="divide  border border-blue-700 my-6"></div>
-              <li>
-                <Link href={"/"}>
-                  <FaHome className="mx-2" />
-                  Home
-                </Link>
-              </li>
-            </ul>
-          )}
-          {isUser === true && (
-            <ul className="menu p-4 w-80   text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
-              <li>
-                <Image
-                  width={150}
-                  height={150}
-                  src={
-                    "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
-                  }
-                />
-              </li>
-              <Link href={"/dashboard"}>
-                {" "}
-                <li className="text-center">User Dashboard</li>
-              </Link>
-              <div className="divide my-6  border border-red-700"></div>
+                <div className="divide my-6  border border-red-700"></div>
 
-              <li>
-                <Link href={"/dashboard/appointment"}>
-                  <FaCalendarAlt className="mx-2" />
-                  My Appointment
+                <li>
+                  <Link href={"/dashboard/appointment"}>
+                    <FaCalendarAlt className="mx-2" />
+                    My Appointment
+                  </Link>
+                </li>
+                <li>
+                  <a>Sidebar Item 2</a>
+                </li>
+                <div className="divide  border border-blue-700 my-6"></div>
+                <li>
+                  <Link href={"/"}>
+                    <FaHome className="mx-2" />
+                    Home
+                  </Link>
+                </li>
+              </ul>
+            )}
+            {(!isAdmin || !isUser) && (
+              <ul className="menu p-4 w-80   text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
+                <li>
+                  <Image
+                    width={150}
+                    height={150}
+                    src={
+                      "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
+                    }
+                  />
+                </li>
+                <Link href={"/dashboard"}>
+                  {" "}
+                  <li className="text-center">Dashboard</li>
                 </Link>
-              </li>
-              <li>
-                <a>Sidebar Item 2</a>
-              </li>
-              <div className="divide  border border-blue-700 my-6"></div>
-              <li>
-                <Link href={"/"}>
-                  <FaHome className="mx-2" />
-                  Home
-                </Link>
-              </li>
-            </ul>
-          )}
-          {(!isAdmin || !isUser) && (
-            <ul className="menu p-4 w-80   text-[22px] h-full bg-[#121C43] text-[#8e44ad] font-bold">
-              <li>
-                <Image
-                  width={150}
-                  height={150}
-                  src={
-                    "/Assests/d307e4100735935.Y3JvcCw4MDgsNjMyLDAsMA-removebg-preview.png"
-                  }
-                />
-              </li>
-              <Link href={"/dashboard"}>
-                {" "}
-                <li className="text-center">Dashboard</li>
-              </Link>
-              <div className="divide my-6  border border-red-700"></div>
-              <button className="btn btn-primary">
-                <Link href={"/Authentication/login"}>Login First</Link>
-              </button>
-              <div className="divide  border border-blue-700 my-6"></div>
-              <li>
-                <Link href={"/"}>
-                  <FaHome className="mx-2" />
-                  Home
-                </Link>
-              </li>
-            </ul>
-          )}
-        </div>
+                <div className="divide my-6  border border-red-700"></div>
+                <button className="btn btn-primary">
+                  <Link href={"/Authentication/login"}>Login First</Link>
+                </button>
+                <div className="divide  border border-blue-700 my-6"></div>
+                <li>
+                  <Link href={"/"}>
+                    <FaHome className="mx-2" />
+                    Home
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </div>
+        )}
       </div>
 
       <body className={roboto.className}></body>
